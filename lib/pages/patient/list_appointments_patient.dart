@@ -100,8 +100,8 @@ class _AppointmentListPatientState extends State<AppointmentListPatient> {
                               treatment: appointments[index].treatment,
                               scheduleDate: newDateString,
                               patientId: appointments[index].patientId,
-                              psychologistId:
-                                  appointments[index].psychologistId,
+                              nutritionistId:
+                                  appointments[index].nutritionistId,
                             );
 
                             updateAppointment(appointments[index].id, index,

@@ -47,7 +47,7 @@ class _RegisterState extends State<Register> {
                         top: 10, bottom: 10, start: 57, end: 57),
                     child: new InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, '/psychoRegister');
+                        Navigator.pushNamed(context, '/nutritionistRegister');
                       },
                       child: Column(children: <Widget>[
                         Container(

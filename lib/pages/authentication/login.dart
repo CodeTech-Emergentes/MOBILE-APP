@@ -27,7 +27,7 @@ class _LoginState extends State<Login> {
 
   late bool _passwordVisible;
 
-  //Psychologist login credentials
+  //Nutritionist login credentials
   @override
   void initState() {
     _passwordVisible = false;
@@ -50,9 +50,9 @@ class _LoginState extends State<Login> {
     return patient;
   }
 
-  Future<Nutritionist?> getPsychologistByEmail(email) async {
-    var psycho = await httpHelper.fetchByPsychologistEmail(email);
-    return psycho;
+  Future<Nutritionist?> getNutritionistByEmail(email) async {
+    var nutritionist = await httpHelper.fetchByNutritionistEmail(email);
+    return nutritionist;
   }
 
   void generalLogin(String email, String password) async {
@@ -74,10 +74,10 @@ class _LoginState extends State<Login> {
     }
 
     try {
-      Nutritionist? psycho = await getPsychologistByEmail(email);
-      if (psycho != null) {
-        savePsychologistData(psycho.id);
-        if (psycho.password == password) {
+      Nutritionist? nutritionist = await getNutritionistByEmail(email);
+      if (nutritionist != null) {
+        saveNutritionistData(nutritionist.id);
+        if (nutritionist.password == password) {
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -206,10 +206,10 @@ class _LoginState extends State<Login> {
     await prefs.setInt('id', id);
   }
 
-  Future<void> savePsychologistData(int id) async {
+  Future<void> saveNutritionistData(int id) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    Nutritionist psychologist = await httpHelper.fetchPsychologistById(id);
-    String user = jsonEncode(psychologist);
+    Nutritionist nutritionist = await httpHelper.fetchNutritionistById(id);
+    String user = jsonEncode(nutritionist);
     prefs.setString('psychologist', user);
     await prefs.setInt('id', id);
   }

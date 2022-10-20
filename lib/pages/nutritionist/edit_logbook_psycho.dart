@@ -96,7 +96,7 @@ class _Edit_Logbook_AppointmentState extends State<Edit_Logbook_Appointment> {
               treatment: treatment,
               scheduleDate: widget.appointment.scheduleDate,
               patientId: widget.appointment.patientId,
-              psychologistId: widget.appointment.psychologistId,
+              nutritionistId: widget.appointment.nutritionistId,
             );
             await httpHelper.updateAppointment(
                 widget.appointment.id, appointmentInfo);

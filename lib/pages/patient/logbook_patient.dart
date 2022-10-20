@@ -34,7 +34,7 @@ class _Logbook_patientState extends State<Logbook_patient> {
       treatment: "",
       scheduleDate: "",
       patientId: 1,
-      psychologistId: 1);
+      nutritionistId: 1);
   HttpHelper httpHelper = HttpHelper();
 
   @override

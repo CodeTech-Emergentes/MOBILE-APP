@@ -15,13 +15,13 @@ import 'package:psychohelp_app/models/patient.dart';
 import '../../controller/payment_controller.dart';
 
 class ListNutritionist extends StatefulWidget {
-  static const String routeName = "/list_psycho";
+  static const String routeName = "/list_nutrionist";
   @override
   State<ListNutritionist> createState() => _ListNutritionistState();
 }
 
 class _ListNutritionistState extends State<ListNutritionist> {
-  List psychologists = [];
+  List nutritionists = [];
   List appointment = [];
   int patientId = 0;
   HttpHelper httpHelper = HttpHelper();
@@ -38,9 +38,9 @@ class _ListNutritionistState extends State<ListNutritionist> {
 
   @override
   void initState() {
-    psychologists = [];
+    nutritionists = [];
     httpHelper = HttpHelper();
-    fetchPsychologists();
+    fetchNutritionists();
     getPatientId();
     super.initState();
   }
@@ -63,10 +63,10 @@ class _ListNutritionistState extends State<ListNutritionist> {
 
   }
 
-  void fetchPsychologists() {
-    httpHelper.fetchPsychologist().then((value) {
+  void fetchNutritionists() {
+    httpHelper.fetchNutritionist().then((value) {
       setState(() {
-        this.psychologists = value;
+        this.nutritionists = value;
       });
     });
   }
@@ -89,7 +89,7 @@ class _ListNutritionistState extends State<ListNutritionist> {
         ),
         body: ListView.builder(
             padding: EdgeInsets.all(30.0),
-            itemCount: psychologists.length,
+            itemCount: nutritionists.length,
             itemBuilder: (context, index) {
               return Card(
                 elevation: 10,
@@ -102,16 +102,16 @@ class _ListNutritionistState extends State<ListNutritionist> {
                     child: CircleAvatar(
                         radius: 50,
                         backgroundImage:
-                            NetworkImage(psychologists[index].img)),
+                            NetworkImage(nutritionists[index].img)),
                   ),
                   SizedBox(
                     height: 10.0,
                   ),
-                  Text(psychologists[index].name),
+                  Text(nutritionists[index].name),
                   SizedBox(
                     height: 10.0,
                   ),
-                  Text(psychologists[index].cmp),
+                  Text(nutritionists[index].cmp),
                   ButtonBar(
                     alignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -134,21 +134,21 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                         CircleAvatar(
                                             radius: 75,
                                             backgroundImage: NetworkImage(
-                                                psychologists[index].img)),
+                                                nutritionists[index].img)),
                                         Text("Nombre: ",
                                             style: TextStyle(
                                                 fontSize: 20.0,
                                                 fontFamily: "Roboto",
                                                 color: Colors.blue[900]),
                                             textAlign: TextAlign.start),
-                                        Text(psychologists[index].name),
+                                        Text(nutritionists[index].name),
                                         SizedBox(height: 5.0),
                                         Text("CNP",
                                             style: TextStyle(
                                                 fontSize: 20.0,
                                                 fontFamily: "Roboto",
                                                 color: Colors.blue[900])),
-                                        Text(psychologists[index].cmp),
+                                        Text(nutritionists[index].cmp),
                                         SizedBox(height: 5.0),
                                         Text(
                                           "DNI",
@@ -157,7 +157,7 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                               fontFamily: "Roboto",
                                               color: Colors.blue[900]),
                                         ),
-                                        Text(psychologists[index].dni),
+                                        Text(nutritionists[index].dni),
                                         SizedBox(height: 5.0),
                                         Text(
                                           "Teléfono",
@@ -166,7 +166,7 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                               fontFamily: "Roboto",
                                               color: Colors.blue[900]),
                                         ),
-                                        Text(psychologists[index].phone),
+                                        Text(nutritionists[index].phone),
                                         SizedBox(height: 5.0),
                                         Text(
                                           "Especialidad",
@@ -175,7 +175,7 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                               fontFamily: "Roboto",
                                               color: Colors.blue[900]),
                                         ),
-                                        Text(psychologists[index]
+                                        Text(nutritionists[index]
                                             .specialization),
                                         SizedBox(height: 5.0),
                                         Text(
@@ -185,7 +185,7 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                               fontFamily: "Roboto",
                                               color: Colors.blue[900]),
                                         ),
-                                        Text(psychologists[index].formation),
+                                        Text(nutritionists[index].formation),
                                         SizedBox(height: 5.0),
                                         Text(
                                           "Acerca de mí",
@@ -194,7 +194,7 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                               fontFamily: "Roboto",
                                               color: Colors.blue[900]),
                                         ),
-                                        Text(psychologists[index].about),
+                                        Text(nutritionists[index].about),
                                         SizedBox(height: 5.0),
                                         Text(
                                           "Tipo de Sesión",
@@ -203,7 +203,7 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                               fontFamily: "Roboto",
                                               color: Colors.blue[900]),
                                         ),
-                                        Text(psychologists[index].sessionType)
+                                        Text(nutritionists[index].sessionType)
                                       ]));
                         },
                       ),
@@ -261,14 +261,14 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                               treatment: treatment,
                                               scheduleDate: date,
                                               patientId: patientId,
-                                              psychologistId:
-                                                  psychologists[index].id);
+                                              nutritionistId:
+                                                  nutritionists[index].id);
                                           controller.makePayment(
                                               amount: '50', currency: 'PEN');
                                           await httpHelper.createAppointment(
                                               request,
                                               patientId,
-                                              psychologists[index].id);
+                                              nutritionists[index].id);
                                           Navigator.pop(context);
                                         },
                                       )

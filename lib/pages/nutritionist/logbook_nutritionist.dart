@@ -33,7 +33,7 @@ class _LogbookNutritionistState extends State<LogbookNutritionist> {
       treatment: "",
       scheduleDate: "",
       patientId: 1,
-      psychologistId: 1);
+      nutritionistId: 1);
   HttpHelper httpHelper = HttpHelper();
 
   @override
@@ -64,7 +64,7 @@ class _LogbookNutritionistState extends State<LogbookNutritionist> {
   Future fetchAppointments(int patientId) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final id = prefs.getInt('id');
-    appointments = await httpHelper.fetchAppointmentsByPsychologistAndPatientId(
+    appointments = await httpHelper.fetchAppointmentsByNutritionistAndPatientId(
         patientId, id!);
     return appointments;
   }
@@ -81,7 +81,7 @@ class _LogbookNutritionistState extends State<LogbookNutritionist> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: new AppBar(
-          title: new Text("Psychologist logbook"),
+          title: new Text("Nutritionist logbook"),
         ),
         resizeToAvoidBottomInset: false,
         body: new Container(

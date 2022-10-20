@@ -25,7 +25,7 @@ class _List_patientsState extends State<List_patients> {
   Future fetchPatients() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     patients =
-        await httpHelper.fetchPatientsByPsychologistId(prefs.getInt('id')!);
+        await httpHelper.fetchPatientsByNutritionistId(prefs.getInt('id')!);
     return patients;
   }
 
@@ -69,7 +69,7 @@ class PatientRow extends StatelessWidget {
             EdgeInsetsDirectional.only(top: 20, bottom: 15, start: 75, end: 75),
         child: new InkWell(
           onTap: () {
-            Navigator.pushNamed(context, "/logbook_psycho", arguments: patient);
+            Navigator.pushNamed(context, "/logbook_nutritionist", arguments: patient);
           },
           child: Column(children: <Widget>[
             Container(

@@ -6,8 +6,8 @@ import 'package:psychohelp_app/utils/http_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EditedNutritionistProfile extends StatefulWidget {
-  const EditedNutritionistProfile(this.pyschologist);
-  final Nutritionist pyschologist;
+  const EditedNutritionistProfile(this.nutritionist);
+  final Nutritionist nutritionist;
 
   @override
   State<EditedNutritionistProfile> createState() => _EditedNutritionistProfileState();
@@ -15,7 +15,7 @@ class EditedNutritionistProfile extends StatefulWidget {
 
 class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
   HttpHelper httpHelper = HttpHelper();
-  Nutritionist? psychologist;
+  Nutritionist? nutritionist;
 
   final TextEditingController controllerName = TextEditingController();
   final TextEditingController controllerEmail = TextEditingController();
@@ -43,24 +43,24 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
   @override
   void initState() {
     httpHelper = HttpHelper();
-    controllerName.text = widget.pyschologist.name;
-    controllerEmail.text = widget.pyschologist.email;
-    controllerPhone.text = widget.pyschologist.phone;
-    controllerBirthday.text = widget.pyschologist.birthday;
-    controllerGender.text = widget.pyschologist.gender;
-    controllerSpecialization.text = widget.pyschologist.specialization;
-    controllerFormation.text = widget.pyschologist.formation;
-    controllerCMP.text = widget.pyschologist.cmp;
-    controllerSessionType.text = widget.pyschologist.sessionType;
-    controllerAbout.text = widget.pyschologist.about;
-    controllerImg.text = widget.pyschologist.img;
+    controllerName.text = widget.nutritionist.name;
+    controllerEmail.text = widget.nutritionist.email;
+    controllerPhone.text = widget.nutritionist.phone;
+    controllerBirthday.text = widget.nutritionist.birthday;
+    controllerGender.text = widget.nutritionist.gender;
+    controllerSpecialization.text = widget.nutritionist.specialization;
+    controllerFormation.text = widget.nutritionist.formation;
+    controllerCMP.text = widget.nutritionist.cmp;
+    controllerSessionType.text = widget.nutritionist.sessionType;
+    controllerAbout.text = widget.nutritionist.about;
+    controllerImg.text = widget.nutritionist.img;
     super.initState();
   }
 
-  Future<void> updatePsychologistData(Nutritionist psychologist) async {
+  Future<void> updateNutritionistData(Nutritionist nutritionist) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String user = jsonEncode(psychologist);
-    prefs.setString('psychologist', user);
+    String user = jsonEncode(nutritionist);
+    prefs.setString('nutritionist', user);
   }
 
   Widget getBody() {
@@ -164,13 +164,13 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
             String about = controllerAbout.text;
             String img = controllerImg.text;
 
-            Nutritionist psychologistInfo = Nutritionist(
-                id: widget.pyschologist.id,
+            Nutritionist nutritionistInfo = Nutritionist(
+                id: widget.nutritionist.id,
                 name: name,
-                dni: widget.pyschologist.dni,
+                dni: widget.nutritionist.dni,
                 birthday: birthday,
                 email: email,
-                password: widget.pyschologist.password,
+                password: widget.nutritionist.password,
                 phone: phone,
                 specialization: specialization,
                 formation: formation,
@@ -179,12 +179,12 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
                 sessionType: sessionType,
                 img: img,
                 cmp: cmp,
-                active: widget.pyschologist.active,
-                fresh: widget.pyschologist.fresh);
-            await httpHelper.updatePsychologist(
-                widget.pyschologist.id, psychologistInfo);
-            updatePsychologistData(psychologistInfo);
-            Navigator.pop(context, psychologistInfo);
+                active: widget.nutritionist.active,
+                fresh: widget.nutritionist.fresh);
+            await httpHelper.updateNutritionist(
+                widget.nutritionist.id, nutritionistInfo);
+            updateNutritionistData(nutritionistInfo);
+            Navigator.pop(context, nutritionistInfo);
           },
         ),
       ],

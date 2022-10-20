@@ -282,8 +282,8 @@ class _AppointmentListState extends State<AppointmentList> {
                               treatment: appointments[index].treatment,
                               scheduleDate: newDateString,
                               patientId: appointments[index].patientId,
-                              psychologistId:
-                                  appointments[index].psychologistId,
+                              nutritionistId:
+                                  appointments[index].nutritionistId,
                             );
 
                             updateAppointment(appointments[index].id, index,
@@ -340,7 +340,7 @@ class _AppointmentListState extends State<AppointmentList> {
   void fetchAppointments() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     int id = prefs.getInt('id')!;
-    httpHelper.fetchAppointmentsByPsychologistId(id).then((value) {
+    httpHelper.fetchAppointmentsByNutritionistId(id).then((value) {
       setState(() {
         this.appointments = value;
       });

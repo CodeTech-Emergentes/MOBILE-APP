@@ -69,7 +69,7 @@ class _My_publicationsState extends State<My_publications> {
   Future fetchPublications() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final id = prefs.getInt('id');
-    httpHelper.fetchPublicationByPsychoId(id!).then((value) {
+    httpHelper.fetchPublicationByNutritionistId(id!).then((value) {
       setState(() {
         this.publications = value;
       });

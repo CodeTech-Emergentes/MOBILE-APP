@@ -14,7 +14,7 @@ class Appointment {
   String treatment;
   String scheduleDate;
   int patientId;
-  int psychologistId;
+  int nutritionistId;
 
   Appointment(
       {required this.id,
@@ -25,7 +25,7 @@ class Appointment {
       required this.treatment,
       required this.scheduleDate,
       required this.patientId,
-      required this.psychologistId});
+      required this.nutritionistId});
 
   factory Appointment.fromJson(Map<String, dynamic> json) {
     return Appointment(
@@ -37,7 +37,7 @@ class Appointment {
         treatment: json["treatment"],
         scheduleDate: json["scheduleDate"],
         patientId: json["patientId"],
-        psychologistId: json["psychologistId"]);
+        nutritionistId: json["nutritionistId"]);
   }
 
   Map<String, dynamic> toJson() => {

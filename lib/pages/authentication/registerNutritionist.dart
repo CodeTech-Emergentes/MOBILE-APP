@@ -5,7 +5,7 @@ import 'package:psychohelp_app/utils/http_helper.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 
 class RegisterNutritionist extends StatefulWidget {
-  static const String routeName = "/psychoRegister";
+  static const String routeName = "/nutritionistRegister";
 
   @override
   State<RegisterNutritionist> createState() => _RegisterNutritionistState();
@@ -315,7 +315,7 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                             bool active = true;
                             bool fresh = true;
 
-                            await httpHelper.createPsychologist(
+                            await httpHelper.createNutritionist(
                               1,
                               name,
                               dni,

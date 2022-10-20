@@ -41,33 +41,33 @@ class HttpHelper {
     }
   }
 
-  Future<Nutritionist> fetchByPsychologistEmail(String email) async {
+  Future<Nutritionist> fetchByNutritionistEmail(String email) async {
     String urlString =
-        '$BASE_URL/v1/psychologists/email/${email}';
+        '$BASE_URL/v1/nutritionists/email/${email}';
     Uri url = Uri.parse(urlString);
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
       final jsonResponse = json.decode(response.body);
-      Nutritionist psychologist = Nutritionist.fromJson(jsonResponse);
-      return psychologist;
+      Nutritionist nutritionist = Nutritionist.fromJson(jsonResponse);
+      return nutritionist;
     } else {
-      throw Exception('Failed to load Psychologist');
+      throw Exception('Failed to load Nutritionist');
     }
   }
 
-  Future<List> fetchPsychologist() async {
+  Future<List> fetchNutritionist() async {
     String urlString =
-        '$BASE_URL/v1/psychologists';
+        '$BASE_URL/v1/nutritionists';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
       final jsonResponse = json.decode(response.body);
-      List psychologists =
+      List nutritionists =
           jsonResponse.map((map) => Nutritionist.fromJson(map)).toList();
-      return psychologists;
+      return nutritionists;
     }
 
     return [];
@@ -106,19 +106,19 @@ class HttpHelper {
     }
   }
 
-  Future<Nutritionist> fetchPsychologistById(int id) async {
+  Future<Nutritionist> fetchNutritionistById(int id) async {
     String urlString =
-        '$BASE_URL/v1/psychologists/${id}';
+        '$BASE_URL/v1/nutritionists/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
       final jsonResponse = json.decode(response.body);
-      Nutritionist psycho = Nutritionist.fromJson(jsonResponse);
-      return psycho;
+      Nutritionist nutritionist = Nutritionist.fromJson(jsonResponse);
+      return nutritionist;
     } else {
-      throw Exception('Failed to load psycho');
+      throw Exception('Failed to load nutritionist');
     }
   }
 
@@ -132,9 +132,9 @@ class HttpHelper {
     return response;
   }
 
-  Future<List> fetchPatientsByPsychologistId(int id) async {
+  Future<List> fetchPatientsByNutritionistId(int id) async {
     String urlString =
-        '$BASE_URL/v1/appointment/psychologist/${id}/patient';
+        '$BASE_URL/v1/appointment/nutritionist/${id}/patient';
     Uri url = Uri.parse(urlString);
     http.Response response = await http.get(url);
     if (response.statusCode == HttpStatus.ok) {
@@ -145,9 +145,9 @@ class HttpHelper {
     return [];
   }
 
-  Future<List> fetchAppointmentsByPsychologistId(int id) async {
+  Future<List> fetchAppointmentsByNutritionistId(int id) async {
     String urlString =
-        '$BASE_URL/v1/appointment/psychologist/${id}';
+        '$BASE_URL/v1/appointment/nutritionist/${id}';
     Uri url = Uri.parse(urlString);
     http.Response response = await http.get(url);
     if (response.statusCode == HttpStatus.ok) {
@@ -223,10 +223,10 @@ class HttpHelper {
     return [];
   }
 
-  Future<List> fetchAppointmentsByPsychologistAndPatientId(
-      int patientId, int psychoId) async {
+  Future<List> fetchAppointmentsByNutritionistAndPatientId(
+      int patientId, int nutritionistId) async {
     String urlString =
-        '$BASE_URL/v1/appointment/psychologist/${psychoId}/patient/${patientId}';
+        '$BASE_URL/v1/appointment/nutritionist/${nutritionistId}/patient/${patientId}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -241,9 +241,9 @@ class HttpHelper {
     return [];
   }
 
-  Future<List> fetchPublicationByPsychoId(int id) async {
+  Future<List> fetchPublicationByNutritionistId(int id) async {
     String urlString =
-        '$BASE_URL/v1/publications/psychologist/${id}';
+        '$BASE_URL/v1/publications/nutritionist/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -261,7 +261,7 @@ class HttpHelper {
   Future<Publication?> createPublication(String title, String tags,
       String description, String photoUrl, String content, int id) async {
     final String urlString =
-        "$BASE_URL/v1/publications/psychologists/${id}";
+        "$BASE_URL/v1/publications/nutritionists/${id}";
     Uri url = Uri.parse(urlString);
 
     final body = {
@@ -320,9 +320,9 @@ class HttpHelper {
       return null;
   }
 
-  Future updatePsychologist(int id, Nutritionist request) async {
+  Future updateNutritionist(int id, Nutritionist request) async {
     final String urlString =
-        "$BASE_URL/v1/psychologists/${id}";
+        "$BASE_URL/v1/nutritionists/${id}";
     Uri url = Uri.parse(urlString);
 
     var headers = {
@@ -333,8 +333,8 @@ class HttpHelper {
         await http.put(url, headers: headers, body: jsonEncode(request));
 
     if (response.statusCode == HttpStatus.ok) {
-      var psychologist = Nutritionist.fromJson(json.decode(response.body));
-      return psychologist;
+      var nutritionist = Nutritionist.fromJson(json.decode(response.body));
+      return nutritionist;
     } else
       return null;
   }
@@ -371,7 +371,7 @@ class HttpHelper {
       return false;
   }
 
-  Future<Nutritionist?> createPsychologist(
+  Future<Nutritionist?> createNutritionist(
     int id,
     String name,
     String dni,
@@ -389,7 +389,7 @@ class HttpHelper {
     bool active,
     bool fresh,
   ) async {
-    final String urlString = "$BASE_URL/v1/psychologists";
+    final String urlString = "$BASE_URL/v1/nutritionists";
     Uri url = Uri.parse(urlString);
 
     final body = {
@@ -471,10 +471,10 @@ class HttpHelper {
   Future<Appointment?> createAppointment(
     Appointment request,
     int patientId,
-    int psychologistId,
+    int nutritionistId,
   ) async {
     final String urlString =
-        "$BASE_URL/v1/appointment/patient/${patientId}/psychologist/${psychologistId}";
+        "$BASE_URL/v1/appointment/patient/${patientId}/nutritionist/${nutritionistId}";
     Uri url = Uri.parse(urlString);
 
     var headers = {
