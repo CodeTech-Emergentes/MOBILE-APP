@@ -104,7 +104,7 @@ class _RegisterPatientState extends State<RegisterPatient> {
                               fontSize: 30,
                             )),
                       ),
-                      SizedBox(height: 16),
+                      SizedBox(height: 17),
                       TextField(
                         controller: controllerFirtsName,
                         decoration: InputDecoration(
