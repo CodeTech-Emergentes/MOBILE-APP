@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'edit_profile_nutritionist.dart';
 
 class ProfileNutritionist extends StatefulWidget {
-  static const String routeName = "/profile_psycho";
+  static const String routeName = "/profile_nutritionist";
   @override
   State<ProfileNutritionist> createState() => _ProfileNutritionistState();
 }
@@ -18,7 +18,7 @@ bool isLoading = true;
 
 class _ProfileNutritionistState extends State<ProfileNutritionist> {
   HttpHelper httpHelper = HttpHelper();
-  Nutritionist psychologist = new Nutritionist(
+  Nutritionist nutritionist = new Nutritionist(
       id: 1,
       name: "",
       dni: "",
@@ -40,31 +40,31 @@ class _ProfileNutritionistState extends State<ProfileNutritionist> {
   void initState() {
     httpHelper = HttpHelper();
     super.initState();
-    fetchPsychologist();
+    fetchNutritionist();
   }
 
   Future<void> _navigateAndDisplaySelection(BuildContext context) async {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => EditedNutritionistProfile(psychologist),
+          builder: (context) => EditedNutritionistProfile(nutritionist),
         ));
     setState(() {
-      psychologist = result as Nutritionist;
+      nutritionist = result as Nutritionist;
     });
   }
 
-  Future fetchPsychologist() async {
+  Future fetchNutritionist() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      psychologist = Nutritionist.fromJson(
-          jsonDecode(prefs.getString('psychologist')!) as Map<String, dynamic>);
+      nutritionist = Nutritionist.fromJson(
+          jsonDecode(prefs.getString('nutritionist')!) as Map<String, dynamic>);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (psychologist.name == "") {
+    if (nutritionist.name == "") {
       return Scaffold(
         appBar: AppBar(
           title: Text("Profile"),
@@ -88,17 +88,20 @@ class _ProfileNutritionistState extends State<ProfileNutritionist> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       CircleAvatar(
-                        backgroundImage:
-                            CachedNetworkImageProvider(psychologist.img),
+                        backgroundImage: CachedNetworkImageProvider(
+                            "https://cdn-icons-png.flaticon.com/512/5745/5745426.png"),
                         radius: 75.0,
                       ),
                       SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            psychologist.name,
-                            style: TextStyle(fontSize: 30.0),
+                          Flexible(
+                            child: Text(
+                              textAlign: TextAlign.center,
+                              nutritionist.name,
+                              style: TextStyle(fontSize: 30.0),
+                            ),
                           ),
                         ],
                       ),
@@ -112,38 +115,38 @@ class _ProfileNutritionistState extends State<ProfileNutritionist> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("Email: " + psychologist.email,
+                                  Text("Email: " + nutritionist.email,
                                       style: TextStyle(fontSize: 20.0)),
                                   SizedBox(height: 10),
-                                  Text("Phone: " + psychologist.phone,
+                                  Text("Phone: " + nutritionist.phone,
                                       style: TextStyle(fontSize: 20.0)),
                                   SizedBox(height: 10),
                                   Text(
                                       "Birthday: " +
-                                          psychologist.birthday
+                                          nutritionist.birthday
                                               .substring(0, 10),
                                       style: TextStyle(fontSize: 20.0)),
                                   SizedBox(height: 10),
-                                  Text("Gender: " + psychologist.gender,
+                                  Text("Gender: " + nutritionist.gender,
                                       style: TextStyle(fontSize: 20.0)),
                                   SizedBox(height: 10),
                                   Text(
                                       "Specialization: " +
-                                          psychologist.specialization,
+                                          nutritionist.specialization,
                                       style: TextStyle(fontSize: 20.0)),
                                   SizedBox(height: 10),
-                                  Text("Formation: " + psychologist.formation,
+                                  Text("Formation: " + nutritionist.formation,
                                       style: TextStyle(fontSize: 20.0)),
                                   SizedBox(height: 10),
-                                  Text("CNP: " + psychologist.cmp,
+                                  Text("CNP: " + nutritionist.cmp,
                                       style: TextStyle(fontSize: 20.0)),
                                   SizedBox(height: 10),
                                   Text(
                                       "Session type: " +
-                                          psychologist.sessionType,
+                                          nutritionist.sessionType,
                                       style: TextStyle(fontSize: 20.0)),
                                   SizedBox(height: 10),
-                                  Text("About: " + psychologist.about,
+                                  Text("About: " + nutritionist.about,
                                       style: TextStyle(fontSize: 20.0)),
                                 ],
                               ),

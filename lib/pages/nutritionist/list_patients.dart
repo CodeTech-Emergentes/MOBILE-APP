@@ -48,7 +48,8 @@ class _List_patientsState extends State<List_patients> {
               );
             } else {
               return Center(
-                child: CircularProgressIndicator(),
+                child: Text("No existen pacientes listados",
+                    style: TextStyle(color: Colors.red, fontSize: 20)),
               );
             }
           },
@@ -69,7 +70,8 @@ class PatientRow extends StatelessWidget {
             EdgeInsetsDirectional.only(top: 20, bottom: 15, start: 75, end: 75),
         child: new InkWell(
           onTap: () {
-            Navigator.pushNamed(context, "/logbook_nutritionist", arguments: patient);
+            Navigator.pushNamed(context, "/logbook_nutritionist",
+                arguments: patient);
           },
           child: Column(children: <Widget>[
             Container(

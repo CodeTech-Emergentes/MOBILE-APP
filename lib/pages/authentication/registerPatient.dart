@@ -54,23 +54,26 @@ class _RegisterPatientState extends State<RegisterPatient> {
     }
   }
 
-  bool validate(){
-    if(controllerPassword.text.length < 8){
-      Fluttertoast.showToast(msg: "La contraseña debe tener 8 o más caracteres", toastLength: Toast.LENGTH_SHORT);
+  bool validate() {
+    if (controllerPassword.text.length < 8) {
+      Fluttertoast.showToast(
+          msg: "La contraseña debe tener 8 o más caracteres",
+          toastLength: Toast.LENGTH_SHORT);
       return false;
     }
-    if(!controllerEmail.text.contains("@")){
-      Fluttertoast.showToast(msg: "Correo Electrónico invalido", toastLength: Toast.LENGTH_SHORT);
+    if (!controllerEmail.text.contains("@")) {
+      Fluttertoast.showToast(
+          msg: "Correo Electrónico invalido", toastLength: Toast.LENGTH_SHORT);
       return false;
     }
-    if(
-    controllerFirtsName.text == ""
-        || controllerLastName.text == ""
-        || controllerPhone.text == ""
-        || controllerBirthday.text == ""
-        || controllerImg.text == ""
-    ){
-      Fluttertoast.showToast(msg: "Llene todos los campos solicitados", toastLength: Toast.LENGTH_SHORT);
+    if (controllerFirtsName.text == "" ||
+        controllerLastName.text == "" ||
+        controllerPhone.text == "" ||
+        controllerBirthday.text == "" ||
+        controllerImg.text == "") {
+      Fluttertoast.showToast(
+          msg: "Llene todos los campos solicitados",
+          toastLength: Toast.LENGTH_SHORT);
       return false;
     }
     return true;
@@ -79,6 +82,9 @@ class _RegisterPatientState extends State<RegisterPatient> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: new AppBar(
+          title: new Text("Registro de paciente"),
+        ),
         body: Container(
             margin: const EdgeInsets.symmetric(horizontal: 40.0),
             width: MediaQuery.of(context).size.width,
@@ -248,7 +254,7 @@ class _RegisterPatientState extends State<RegisterPatient> {
                               fontSize: 16,
                             )),
                         onPressed: () async {
-                          if(validate()){
+                          if (validate()) {
                             String firstName = controllerFirtsName.text;
                             String lastName = controllerLastName.text;
                             String email = controllerEmail.text;

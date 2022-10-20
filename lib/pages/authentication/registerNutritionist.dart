@@ -32,7 +32,8 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
   final TextEditingController controllerEmail = TextEditingController();
   final TextEditingController controllerPassword = TextEditingController();
   final TextEditingController controllerPhone = TextEditingController();
-  final TextEditingController controllerSpecialization = TextEditingController();
+  final TextEditingController controllerSpecialization =
+      TextEditingController();
   final TextEditingController controllerFormation = TextEditingController();
   final TextEditingController controllerAbout = TextEditingController();
   final TextEditingController controllerImg = TextEditingController();
@@ -59,28 +60,31 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
       });
     }
   }
-  
-  bool validate(){
-    if(controllerPassword.text.length < 8){
-      Fluttertoast.showToast(msg: "La contraseña debe tener 8 o más caracteres", toastLength: Toast.LENGTH_SHORT);
+
+  bool validate() {
+    if (controllerPassword.text.length < 8) {
+      Fluttertoast.showToast(
+          msg: "La contraseña debe tener 8 o más caracteres",
+          toastLength: Toast.LENGTH_SHORT);
       return false;
     }
-    if(!controllerEmail.text.contains("@")){
-      Fluttertoast.showToast(msg: "Correo Electrónico invalido", toastLength: Toast.LENGTH_SHORT);
+    if (!controllerEmail.text.contains("@")) {
+      Fluttertoast.showToast(
+          msg: "Correo Electrónico invalido", toastLength: Toast.LENGTH_SHORT);
       return false;
     }
-    if(
-    controllerName.text == ""
-        || controllerDNI.text == ""
-        || controllerPhone.text == ""
-        || controllerSpecialization.text == ""
-        || controllerFormation.text == ""
-        || controllerBirthday.text == ""
-        || controllerAbout.text == ""
-        || controllerImg.text == ""
-        || controllerCMP.text == ""
-    ){
-      Fluttertoast.showToast(msg: "Llene todos los campos solicitados", toastLength: Toast.LENGTH_SHORT);
+    if (controllerName.text == "" ||
+        controllerDNI.text == "" ||
+        controllerPhone.text == "" ||
+        controllerSpecialization.text == "" ||
+        controllerFormation.text == "" ||
+        controllerBirthday.text == "" ||
+        controllerAbout.text == "" ||
+        controllerImg.text == "" ||
+        controllerCMP.text == "") {
+      Fluttertoast.showToast(
+          msg: "Llene todos los campos solicitados",
+          toastLength: Toast.LENGTH_SHORT);
       return false;
     }
     return true;
@@ -89,8 +93,12 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: new AppBar(
+          title: new Text("Registro de nutricionista"),
+        ),
         body: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+            margin:
+                const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
             width: MediaQuery.of(context).size.width,
             child: Align(
                 alignment: Alignment.center,
@@ -298,14 +306,15 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                               fontSize: 16,
                             )),
                         onPressed: () async {
-                          if (validate()){
+                          if (validate()) {
                             String name = controllerName.text;
                             String dni = controllerDNI.text;
                             String birthday = controllerBirthday.text;
                             String email = controllerEmail.text;
                             String password = controllerPassword.text;
                             String phone = controllerPhone.text;
-                            String specialization = controllerSpecialization.text;
+                            String specialization =
+                                controllerSpecialization.text;
                             String formation = controllerFormation.text;
                             String about = controllerAbout.text;
                             String gender = selectedGenderValue;

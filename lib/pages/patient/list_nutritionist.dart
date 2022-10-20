@@ -15,7 +15,7 @@ import 'package:psychohelp_app/models/patient.dart';
 import '../../controller/payment_controller.dart';
 
 class ListNutritionist extends StatefulWidget {
-  static const String routeName = "/list_nutrionist";
+  static const String routeName = "/list_nutritionist";
   @override
   State<ListNutritionist> createState() => _ListNutritionistState();
 }
@@ -55,12 +55,11 @@ class _ListNutritionistState extends State<ListNutritionist> {
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
-        controllerAppointment.text = formatDate(
-            selectedDate, [dd, '/', mm, '/', yy]);
+        controllerAppointment.text =
+            formatDate(selectedDate, [dd, '/', mm, '/', yy]);
         //selectedDate.toString().substring(0, 10);
       });
     }
-
   }
 
   void fetchNutritionists() {
@@ -101,8 +100,8 @@ class _ListNutritionistState extends State<ListNutritionist> {
                     margin: EdgeInsets.only(top: 10.0),
                     child: CircleAvatar(
                         radius: 50,
-                        backgroundImage:
-                            NetworkImage(nutritionists[index].img)),
+                        backgroundImage: NetworkImage(
+                            "https://cdn-icons-png.flaticon.com/512/5745/5745426.png")),
                   ),
                   SizedBox(
                     height: 10.0,
@@ -111,7 +110,7 @@ class _ListNutritionistState extends State<ListNutritionist> {
                   SizedBox(
                     height: 10.0,
                   ),
-                  Text(nutritionists[index].cmp),
+                  Text(nutritionists[index].about),
                   ButtonBar(
                     alignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -131,10 +130,23 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                       ),
                                       contentPadding: EdgeInsets.all(16.0),
                                       children: <Widget>[
-                                        CircleAvatar(
-                                            radius: 75,
-                                            backgroundImage: NetworkImage(
-                                                nutritionists[index].img)),
+                                        Container(
+                                          margin: EdgeInsets.only(top: 10.0),
+                                          child: CircleAvatar(
+                                            backgroundColor: Colors.green,
+                                            radius: 90,
+                                            child: CircleAvatar(
+                                              backgroundColor:
+                                                  Colors.greenAccent[100],
+                                              radius: 85,
+                                              child: CircleAvatar(
+                                                backgroundImage: NetworkImage(
+                                                    "https://cdn-icons-png.flaticon.com/512/5745/5745426.png"), //NetworkImage
+                                                radius: 75,
+                                              ), //CircleAvatar
+                                            ), //CircleAvatar
+                                          ),
+                                        ),
                                         Text("Nombre: ",
                                             style: TextStyle(
                                                 fontSize: 20.0,

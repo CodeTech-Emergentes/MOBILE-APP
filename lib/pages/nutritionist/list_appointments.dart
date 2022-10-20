@@ -43,7 +43,8 @@ class _AppointmentListState extends State<AppointmentList> {
     if (appointments.length == 0) {
       return Scaffold(
         body: Center(
-          child: CircularProgressIndicator(),
+          child: Text("No existen citas programadas",
+              style: TextStyle(color: Colors.red, fontSize: 20)),
         ),
       );
     } else {

@@ -20,12 +20,15 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: new AppBar(
+        title: new Text("Elige usuario"),
+      ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         child: Align(
           alignment: Alignment.center,
           child: SingleChildScrollView(
-          child: Column(
+            child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Padding(
@@ -56,14 +59,16 @@ class _RegisterState extends State<Register> {
                             child: Image.network(
                               "https://static.vecteezy.com/system/resources/previews/002/921/526/original/depressed-woman-sitting-on-chair-psychologist-doctor-consulting-patient-in-therapy-session-online-psychotherapy-counseling-concept-mental-health-depression-human-mental-problem-solutions-vector.jpg",
                               fit: BoxFit.fill,
-                              loadingBuilder: (BuildContext context, Widget child,
+                              loadingBuilder: (BuildContext context,
+                                  Widget child,
                                   ImageChunkEvent? loadingProgress) {
                                 if (loadingProgress == null) return child;
                                 return Center(
                                   child: CircularProgressIndicator(
                                     value: loadingProgress.expectedTotalBytes !=
                                             null
-                                        ? loadingProgress.cumulativeBytesLoaded /
+                                        ? loadingProgress
+                                                .cumulativeBytesLoaded /
                                             loadingProgress.expectedTotalBytes!
                                         : null,
                                   ),
@@ -78,34 +83,34 @@ class _RegisterState extends State<Register> {
                       style: TextStyle(fontSize: 18, height: 1)),
                 ),
                 Card(
-                    margin: EdgeInsetsDirectional.only(top: 10, bottom: 10),
-                    child: new InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/patientRegister');
-                      },
-                      child: Column(children: <Widget>[
-                        Container(
-                            margin: EdgeInsetsDirectional.only(
-                                top: 10, bottom: 10, start: 10, end: 10),
-                            child: Image.network(
-                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaSM1kabpkvUSejLRD5MMpc-_moKxfJ1Bs2w&usqp=CAU",
-                              fit: BoxFit.fill,
-                              loadingBuilder: (BuildContext context, Widget child,
-                                  ImageChunkEvent? loadingProgress) {
-                                if (loadingProgress == null) return child;
-                                return Center(
-                                  child: CircularProgressIndicator(
-                                    value: loadingProgress.expectedTotalBytes !=
-                                            null
-                                        ? loadingProgress.cumulativeBytesLoaded /
-                                            loadingProgress.expectedTotalBytes!
-                                        : null,
-                                  ),
-                                );
-                              },
-                            )),
-                      ]),
-                    ),
+                  margin: EdgeInsetsDirectional.only(top: 10, bottom: 10),
+                  child: new InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/patientRegister');
+                    },
+                    child: Column(children: <Widget>[
+                      Container(
+                          margin: EdgeInsetsDirectional.only(
+                              top: 10, bottom: 10, start: 10, end: 10),
+                          child: Image.network(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaSM1kabpkvUSejLRD5MMpc-_moKxfJ1Bs2w&usqp=CAU",
+                            fit: BoxFit.fill,
+                            loadingBuilder: (BuildContext context, Widget child,
+                                ImageChunkEvent? loadingProgress) {
+                              if (loadingProgress == null) return child;
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  value: loadingProgress.expectedTotalBytes !=
+                                          null
+                                      ? loadingProgress.cumulativeBytesLoaded /
+                                          loadingProgress.expectedTotalBytes!
+                                      : null,
+                                ),
+                              );
+                            },
+                          )),
+                    ]),
+                  ),
                 ),
               ],
             ),

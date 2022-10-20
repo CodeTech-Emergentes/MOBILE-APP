@@ -105,7 +105,8 @@ class _My_publicationsState extends State<My_publications> {
                       topRight: Radius.circular(20),
                       topLeft: Radius.circular(20)),
                   child: CachedNetworkImage(
-                    imageUrl: publications[index].photoUrl,
+                    imageUrl:
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwgaw2H5oC3iXp5qxzNlLqUEFQu7qVMgBOtQ&usqp=CAU",
                     fit: BoxFit.cover,
                     height: 200,
                     width: double.infinity,

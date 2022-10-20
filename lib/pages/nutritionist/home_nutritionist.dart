@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 import 'package:psychohelp_app/models/nutritionist.dart';
 import 'package:psychohelp_app/utils/http_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,12 +13,12 @@ class HomeNutritionist extends StatefulWidget {
   HomeNutritionist({Key? key}) : super(key: key);
   @override
   State<HomeNutritionist> createState() => _HomeNutritionistState();
-  static const String routeName = "/home_psycho";
+  static const String routeName = "/home_nutritionist";
 }
 
 class _HomeNutritionistState extends State<HomeNutritionist> {
   HttpHelper httpHelper = HttpHelper();
-  Nutritionist psychologist = new Nutritionist(
+  Nutritionist nutritionist = new Nutritionist(
       id: 1,
       name: "",
       dni: "",
@@ -39,25 +40,25 @@ class _HomeNutritionistState extends State<HomeNutritionist> {
   void initState() {
     httpHelper = HttpHelper();
     super.initState();
-    fetchPsychologist();
+    fetchNutritionist();
   }
 
-  Future fetchPsychologist() async {
+  Future fetchNutritionist() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    var psycho = prefs.getString('psychologist') ?? "";
+    var nutri = prefs.getString('nutritionist') ?? "";
     setState(() {
-      if (psycho != "") {
-        psychologist =
-            Nutritionist.fromJson(jsonDecode(psycho) as Map<String, dynamic>);
+      if (nutri != "") {
+        nutritionist =
+            Nutritionist.fromJson(jsonDecode(nutri) as Map<String, dynamic>);
       }
     });
   }
 
   Drawer getDrawer(BuildContext context) {
-    fetchPsychologist();
+    fetchNutritionist();
     var header = DrawerHeader(
       child: Container(
-        padding: EdgeInsets.only(left: 10.0),
+        padding: EdgeInsets.all(8),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text("Nutrix",
               style: TextStyle(
@@ -70,16 +71,20 @@ class _HomeNutritionistState extends State<HomeNutritionist> {
               Text("Bienvenido,",
                   style: TextStyle(fontSize: 20.0, color: Colors.white)),
               Container(
-                margin: EdgeInsets.only(top: 4.0),
+                margin: EdgeInsets.only(top: 8.0),
                 child: Row(
                   children: [
                     CircleAvatar(
-                      backgroundImage: NetworkImage(psychologist.img),
+                      backgroundImage: NetworkImage(
+                          "https://cdn-icons-png.flaticon.com/512/5745/5745426.png"),
                       radius: 20.0,
                     ),
                     SizedBox(width: 8.0),
-                    Text(psychologist.name,
-                        style: TextStyle(fontSize: 20.0, color: Colors.white)),
+                    Flexible(
+                      child: Text(nutritionist.name,
+                          style:
+                              TextStyle(fontSize: 20.0, color: Colors.white)),
+                    ),
                   ],
                 ),
               )
@@ -109,9 +114,10 @@ class _HomeNutritionistState extends State<HomeNutritionist> {
 
     ListView listView = new ListView(
       children: [
-        header,
-        getItem(new Icon(Icons.home), "Home", "/home_psycho"),
-        getItem(new Icon(Icons.person), "Profile", "/profile_psycho"),
+        Container(
+            height: MediaQuery.of(context).size.height / 3.3, child: header),
+        getItem(new Icon(Icons.home), "Home", "/home_nutritionist"),
+        getItem(new Icon(Icons.person), "Profile", "/profile_nutritionist"),
         getItem(new Icon(Icons.people), "Patient list", "/list_patients"),
         getItem(new Icon(Icons.date_range), "My appointments", "/dating_dates"),
         getItem(new Icon(Icons.public), "My publications", "/my_publications"),
@@ -126,10 +132,10 @@ class _HomeNutritionistState extends State<HomeNutritionist> {
 
   @override
   Widget build(BuildContext context) {
-    fetchPsychologist();
+    fetchNutritionist();
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Home psychologist"),
+        title: new Text("Home nutritionist"),
       ),
       body: PublicationList(),
       drawer: new Drawer(

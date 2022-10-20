@@ -8,8 +8,8 @@ import 'package:psychohelp_app/models/nutritionist.dart';
 //import 'package:psychohelp_app/pages/patient/appointments.dart';
 
 class HttpHelper {
-
-  String BASE_URL = "http://nutrix.eba-epdhbsvp.us-east-1.elasticbeanstalk.com/api";
+  String BASE_URL =
+      "http://nutrix.eba-epdhbsvp.us-east-1.elasticbeanstalk.com/api";
 
   Future<List> fetchPatients() async {
     String urlString = '$BASE_URL/v1/patients';
@@ -27,8 +27,7 @@ class HttpHelper {
   }
 
   Future<Patient> fetchByPatientEmail(String email) async {
-    String urlString =
-        '$BASE_URL/v1/patients/email/${email}';
+    String urlString = '$BASE_URL/v1/patients/email/${email}';
     Uri url = Uri.parse(urlString);
     http.Response response = await http.get(url);
 
@@ -42,8 +41,7 @@ class HttpHelper {
   }
 
   Future<Nutritionist> fetchByNutritionistEmail(String email) async {
-    String urlString =
-        '$BASE_URL/v1/nutritionists/email/${email}';
+    String urlString = '$BASE_URL/v1/nutritionists/email/${email}';
     Uri url = Uri.parse(urlString);
     http.Response response = await http.get(url);
 
@@ -57,8 +55,7 @@ class HttpHelper {
   }
 
   Future<List> fetchNutritionist() async {
-    String urlString =
-        '$BASE_URL/v1/nutritionists';
+    String urlString = '$BASE_URL/v1/nutritionists';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -74,8 +71,7 @@ class HttpHelper {
   }
 
   Future<List> fetchPublications() async {
-    String urlString =
-        '$BASE_URL/v1/publications';
+    String urlString = '$BASE_URL/v1/publications';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -91,8 +87,7 @@ class HttpHelper {
   }
 
   Future<Patient> fetchPatientById(int id) async {
-    String urlString =
-        '$BASE_URL/v1/patients/${id}';
+    String urlString = '$BASE_URL/v1/patients/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -107,8 +102,7 @@ class HttpHelper {
   }
 
   Future<Nutritionist> fetchNutritionistById(int id) async {
-    String urlString =
-        '$BASE_URL/v1/nutritionists/${id}';
+    String urlString = '$BASE_URL/v1/nutritionists/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -133,8 +127,7 @@ class HttpHelper {
   }
 
   Future<List> fetchPatientsByNutritionistId(int id) async {
-    String urlString =
-        '$BASE_URL/v1/appointment/nutritionist/${id}/patient';
+    String urlString = '$BASE_URL/v1/appointment/nutritionist/${id}/patient';
     Uri url = Uri.parse(urlString);
     http.Response response = await http.get(url);
     if (response.statusCode == HttpStatus.ok) {
@@ -146,8 +139,7 @@ class HttpHelper {
   }
 
   Future<List> fetchAppointmentsByNutritionistId(int id) async {
-    String urlString =
-        '$BASE_URL/v1/appointment/nutritionist/${id}';
+    String urlString = '$BASE_URL/v1/appointment/nutritionist/${id}';
     Uri url = Uri.parse(urlString);
     http.Response response = await http.get(url);
     if (response.statusCode == HttpStatus.ok) {
@@ -160,8 +152,7 @@ class HttpHelper {
   }
 
   Future<List> fetchPatientAppointments(int id) async {
-    String urlString =
-        '$BASE_URL/v1/appointment/patient/${id}';
+    String urlString = '$BASE_URL/v1/appointment/patient/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -175,8 +166,7 @@ class HttpHelper {
   }
 
   Future fetchAppointmentById(int id) async {
-    String urlString =
-        '$BASE_URL/v1/appointment/${id}';
+    String urlString = '$BASE_URL/v1/appointment/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -188,8 +178,7 @@ class HttpHelper {
   }
 
   Future updateAppointment(int id, Appointment request) async {
-    final String urlString =
-        "$BASE_URL/v1/appointment/${id}";
+    final String urlString = "$BASE_URL/v1/appointment/${id}";
     Uri url = Uri.parse(urlString);
 
     var headers = {
@@ -207,8 +196,7 @@ class HttpHelper {
   }
 
   Future<List> fetchAppointmentsByPatientId(int id) async {
-    String urlString =
-        '$BASE_URL/v1/appointment/patient/${id}';
+    String urlString = '$BASE_URL/v1/appointment/patient/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -242,8 +230,7 @@ class HttpHelper {
   }
 
   Future<List> fetchPublicationByNutritionistId(int id) async {
-    String urlString =
-        '$BASE_URL/v1/publications/nutritionist/${id}';
+    String urlString = '$BASE_URL/v1/publications/nutritionist/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -260,8 +247,7 @@ class HttpHelper {
 
   Future<Publication?> createPublication(String title, String tags,
       String description, String photoUrl, String content, int id) async {
-    final String urlString =
-        "$BASE_URL/v1/publications/nutritionists/${id}";
+    final String urlString = "$BASE_URL/v1/publications/nutritionists/${id}";
     Uri url = Uri.parse(urlString);
 
     final body = {
@@ -287,13 +273,13 @@ class HttpHelper {
   }
 
   Future fetchPublicationById(int id) async {
-    String urlString =
-        '$BASE_URL/v1/publications/${id}';
+    String urlString = '$BASE_URL/v1/publications/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
+      //final jsonResponse = json.decode(response.body);
       final jsonResponse = json.decode(response.body);
       Publication publication = Publication.fromJson(jsonResponse);
       return publication;
@@ -302,13 +288,10 @@ class HttpHelper {
   }
 
   Future updatePublication(int id, Publication request) async {
-    final String urlString =
-        "$BASE_URL/v1/publications/${id}";
+    final String urlString = "$BASE_URL/v1/publications/${id}";
     Uri url = Uri.parse(urlString);
 
-    var headers = {
-      'Content-Type': 'application/json',
-    };
+    var headers = {'Content-Type': 'application/json;charset=UTF-8'};
 
     final response =
         await http.put(url, headers: headers, body: jsonEncode(request));
@@ -321,8 +304,7 @@ class HttpHelper {
   }
 
   Future updateNutritionist(int id, Nutritionist request) async {
-    final String urlString =
-        "$BASE_URL/v1/nutritionists/${id}";
+    final String urlString = "$BASE_URL/v1/nutritionists/${id}";
     Uri url = Uri.parse(urlString);
 
     var headers = {
@@ -340,8 +322,7 @@ class HttpHelper {
   }
 
   Future updatePatient(int id, Patient request) async {
-    final String urlString =
-        "$BASE_URL/v1/patients/${id}";
+    final String urlString = "$BASE_URL/v1/patients/${id}";
     Uri url = Uri.parse(urlString);
 
     var headers = {
@@ -359,8 +340,7 @@ class HttpHelper {
   }
 
   Future deletePublication(int id) async {
-    final String urlString =
-        "$BASE_URL/v1/publications/${id}";
+    final String urlString = "$BASE_URL/v1/publications/${id}";
     Uri url = Uri.parse(urlString);
 
     final response = await http.delete(url);
@@ -413,7 +393,8 @@ class HttpHelper {
     var headers = {
       'Content-Type': 'application/json',
     };
-    final response = await http.post(url, headers: headers, body: jsonEncode(body));
+    final response =
+        await http.post(url, headers: headers, body: jsonEncode(body));
 
     print(response.body);
 
@@ -436,8 +417,7 @@ class HttpHelper {
     String gender,
     String img,
   ) async {
-    final String urlString =
-        "$BASE_URL/v1/patients";
+    final String urlString = "$BASE_URL/v1/patients";
     Uri url = Uri.parse(urlString);
 
     final body = {

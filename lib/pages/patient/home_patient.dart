@@ -104,7 +104,8 @@ class _Home_patientState extends State<Home_patient> {
         header,
         getItem(new Icon(Icons.home), "Home", "/home_patient"),
         getItem(new Icon(Icons.person), "Profile", "/profile_patient"),
-        getItem(new Icon(Icons.people), "Nutritionists list", "/list_psycho"),
+        getItem(
+            new Icon(Icons.people), "Nutritionists list", "/list_nutritionist"),
         getItem(new Icon(Icons.date_range), "My appointments",
             "/dating_dates_patient"),
         getItem(new Icon(Icons.description), "Logbook", "/logbook_patient"),
