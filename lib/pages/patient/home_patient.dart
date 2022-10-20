@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:psychohelp_app/models/patient.dart';
-import 'package:psychohelp_app/pages/psychologist/publication_list.dart';
 import 'package:psychohelp_app/utils/http_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../nutritionist/publication_list.dart';
 
 class Home_patient extends StatefulWidget {
   Home_patient({Key? key}) : super(key: key);
@@ -51,7 +51,7 @@ class _Home_patientState extends State<Home_patient> {
       child: Container(
         padding: EdgeInsets.only(left: 10.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text("PsychoHelp",
+          Text("Nutrix",
               style: TextStyle(
                   fontSize: 35.0,
                   fontWeight: FontWeight.bold,
@@ -104,7 +104,7 @@ class _Home_patientState extends State<Home_patient> {
         header,
         getItem(new Icon(Icons.home), "Home", "/home_patient"),
         getItem(new Icon(Icons.person), "Profile", "/profile_patient"),
-        getItem(new Icon(Icons.people), "Psychologists list", "/list_psycho"),
+        getItem(new Icon(Icons.people), "Nutritionists list", "/list_psycho"),
         getItem(new Icon(Icons.date_range), "My appointments",
             "/dating_dates_patient"),
         getItem(new Icon(Icons.description), "Logbook", "/logbook_patient"),

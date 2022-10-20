@@ -4,12 +4,15 @@ import 'package:http/http.dart' as http;
 import 'package:psychohelp_app/models/publication.dart';
 import 'package:psychohelp_app/models/patient.dart';
 import 'package:psychohelp_app/models/appointment.dart';
-import 'package:psychohelp_app/models/psychologist.dart';
+import 'package:psychohelp_app/models/nutritionist.dart';
 //import 'package:psychohelp_app/pages/patient/appointments.dart';
 
 class HttpHelper {
+
+  String BASE_URL = "http://nutrix.eba-epdhbsvp.us-east-1.elasticbeanstalk.com/api";
+
   Future<List> fetchPatients() async {
-    String urlString = 'https://psychohelp-open.mybluemix.net/api/v1/patients';
+    String urlString = '$BASE_URL/v1/patients';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -25,7 +28,7 @@ class HttpHelper {
 
   Future<Patient> fetchByPatientEmail(String email) async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/patients/email/${email}';
+        '$BASE_URL/v1/patients/email/${email}';
     Uri url = Uri.parse(urlString);
     http.Response response = await http.get(url);
 
@@ -38,15 +41,15 @@ class HttpHelper {
     }
   }
 
-  Future<Psychologist> fetchByPsychologistEmail(String email) async {
+  Future<Nutritionist> fetchByPsychologistEmail(String email) async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/psychologists/email/${email}';
+        '$BASE_URL/v1/psychologists/email/${email}';
     Uri url = Uri.parse(urlString);
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
       final jsonResponse = json.decode(response.body);
-      Psychologist psychologist = Psychologist.fromJson(jsonResponse);
+      Nutritionist psychologist = Nutritionist.fromJson(jsonResponse);
       return psychologist;
     } else {
       throw Exception('Failed to load Psychologist');
@@ -55,7 +58,7 @@ class HttpHelper {
 
   Future<List> fetchPsychologist() async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/psychologists';
+        '$BASE_URL/v1/psychologists';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -63,7 +66,7 @@ class HttpHelper {
     if (response.statusCode == HttpStatus.ok) {
       final jsonResponse = json.decode(response.body);
       List psychologists =
-          jsonResponse.map((map) => Psychologist.fromJson(map)).toList();
+          jsonResponse.map((map) => Nutritionist.fromJson(map)).toList();
       return psychologists;
     }
 
@@ -72,7 +75,7 @@ class HttpHelper {
 
   Future<List> fetchPublications() async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/publications';
+        '$BASE_URL/v1/publications';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -89,7 +92,7 @@ class HttpHelper {
 
   Future<Patient> fetchPatientById(int id) async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/patients/${id}';
+        '$BASE_URL/v1/patients/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -103,16 +106,16 @@ class HttpHelper {
     }
   }
 
-  Future<Psychologist> fetchPsychologistById(int id) async {
+  Future<Nutritionist> fetchPsychologistById(int id) async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/psychologists/${id}';
+        '$BASE_URL/v1/psychologists/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
       final jsonResponse = json.decode(response.body);
-      Psychologist psycho = Psychologist.fromJson(jsonResponse);
+      Nutritionist psycho = Nutritionist.fromJson(jsonResponse);
       return psycho;
     } else {
       throw Exception('Failed to load psycho');
@@ -121,7 +124,7 @@ class HttpHelper {
 
   Future<http.Response> deleteAppointmentById(int id) async {
     final http.Response response = await http.delete(
-      Uri.parse('https://psychohelp-open.mybluemix.net/api/v1/appointment/$id'),
+      Uri.parse('$BASE_URL/v1/appointment/$id'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -131,7 +134,7 @@ class HttpHelper {
 
   Future<List> fetchPatientsByPsychologistId(int id) async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/appointment/psychologist/${id}/patient';
+        '$BASE_URL/v1/appointment/psychologist/${id}/patient';
     Uri url = Uri.parse(urlString);
     http.Response response = await http.get(url);
     if (response.statusCode == HttpStatus.ok) {
@@ -144,7 +147,7 @@ class HttpHelper {
 
   Future<List> fetchAppointmentsByPsychologistId(int id) async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/appointment/psychologist/${id}';
+        '$BASE_URL/v1/appointment/psychologist/${id}';
     Uri url = Uri.parse(urlString);
     http.Response response = await http.get(url);
     if (response.statusCode == HttpStatus.ok) {
@@ -158,7 +161,7 @@ class HttpHelper {
 
   Future<List> fetchPatientAppointments(int id) async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/appointment/patient/${id}';
+        '$BASE_URL/v1/appointment/patient/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -173,7 +176,7 @@ class HttpHelper {
 
   Future fetchAppointmentById(int id) async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/appointment/${id}';
+        '$BASE_URL/v1/appointment/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -186,7 +189,7 @@ class HttpHelper {
 
   Future updateAppointment(int id, Appointment request) async {
     final String urlString =
-        "https://psychohelp-open.mybluemix.net/api/v1/appointment/${id}";
+        "$BASE_URL/v1/appointment/${id}";
     Uri url = Uri.parse(urlString);
 
     var headers = {
@@ -205,7 +208,7 @@ class HttpHelper {
 
   Future<List> fetchAppointmentsByPatientId(int id) async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/appointment/patient/${id}';
+        '$BASE_URL/v1/appointment/patient/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -223,7 +226,7 @@ class HttpHelper {
   Future<List> fetchAppointmentsByPsychologistAndPatientId(
       int patientId, int psychoId) async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/appointment/psychologist/${psychoId}/patient/${patientId}';
+        '$BASE_URL/v1/appointment/psychologist/${psychoId}/patient/${patientId}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -240,7 +243,7 @@ class HttpHelper {
 
   Future<List> fetchPublicationByPsychoId(int id) async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/publications/psychologist/${id}';
+        '$BASE_URL/v1/publications/psychologist/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -258,7 +261,7 @@ class HttpHelper {
   Future<Publication?> createPublication(String title, String tags,
       String description, String photoUrl, String content, int id) async {
     final String urlString =
-        "https://psychohelp-open.mybluemix.net/api/v1/publications/psychologists/${id}";
+        "$BASE_URL/v1/publications/psychologists/${id}";
     Uri url = Uri.parse(urlString);
 
     final body = {
@@ -285,7 +288,7 @@ class HttpHelper {
 
   Future fetchPublicationById(int id) async {
     String urlString =
-        'https://psychohelp-open.mybluemix.net/api/v1/publications/${id}';
+        '$BASE_URL/v1/publications/${id}';
     Uri url = Uri.parse(urlString);
 
     http.Response response = await http.get(url);
@@ -300,7 +303,7 @@ class HttpHelper {
 
   Future updatePublication(int id, Publication request) async {
     final String urlString =
-        "https://psychohelp-open.mybluemix.net/api/v1/publications/${id}";
+        "$BASE_URL/v1/publications/${id}";
     Uri url = Uri.parse(urlString);
 
     var headers = {
@@ -317,9 +320,9 @@ class HttpHelper {
       return null;
   }
 
-  Future updatePsychologist(int id, Psychologist request) async {
+  Future updatePsychologist(int id, Nutritionist request) async {
     final String urlString =
-        "https://psychohelp-open.mybluemix.net/api/v1/psychologists/${id}";
+        "$BASE_URL/v1/psychologists/${id}";
     Uri url = Uri.parse(urlString);
 
     var headers = {
@@ -330,7 +333,7 @@ class HttpHelper {
         await http.put(url, headers: headers, body: jsonEncode(request));
 
     if (response.statusCode == HttpStatus.ok) {
-      var psychologist = Psychologist.fromJson(json.decode(response.body));
+      var psychologist = Nutritionist.fromJson(json.decode(response.body));
       return psychologist;
     } else
       return null;
@@ -338,7 +341,7 @@ class HttpHelper {
 
   Future updatePatient(int id, Patient request) async {
     final String urlString =
-        "https://psychohelp-open.mybluemix.net/api/v1/patients/${id}";
+        "$BASE_URL/v1/patients/${id}";
     Uri url = Uri.parse(urlString);
 
     var headers = {
@@ -357,7 +360,7 @@ class HttpHelper {
 
   Future deletePublication(int id) async {
     final String urlString =
-        "https://psychohelp-open.mybluemix.net/api/v1/publications/${id}";
+        "$BASE_URL/v1/publications/${id}";
     Uri url = Uri.parse(urlString);
 
     final response = await http.delete(url);
@@ -368,7 +371,7 @@ class HttpHelper {
       return false;
   }
 
-  Future<Psychologist?> createPsychologist(
+  Future<Nutritionist?> createPsychologist(
     int id,
     String name,
     String dni,
@@ -386,12 +389,10 @@ class HttpHelper {
     bool active,
     bool fresh,
   ) async {
-    final String urlString =
-        "https://psychohelp-open.mybluemix.net/api/v1/psychologists";
+    final String urlString = "$BASE_URL/v1/psychologists";
     Uri url = Uri.parse(urlString);
 
     final body = {
-      "id": id,
       "name": name,
       "dni": dni,
       "birthdayDate": birthday,
@@ -412,13 +413,14 @@ class HttpHelper {
     var headers = {
       'Content-Type': 'application/json',
     };
+    final response = await http.post(url, headers: headers, body: jsonEncode(body));
 
-    final response =
-        await http.post(url, headers: headers, body: jsonEncode(body));
+    print(response.body);
+
     if (response.statusCode == HttpStatus.ok) {
       final String responseString = response.body;
-      print('Psycho creado');
-      return psychologistFromJson(responseString);
+      print('Nutricionista creado');
+      return nutritionistFromJson(responseString);
     } else
       return null;
   }
@@ -435,7 +437,7 @@ class HttpHelper {
     String img,
   ) async {
     final String urlString =
-        "https://psychohelp-open.mybluemix.net/api/v1/patients";
+        "$BASE_URL/v1/patients";
     Uri url = Uri.parse(urlString);
 
     final body = {
@@ -472,7 +474,7 @@ class HttpHelper {
     int psychologistId,
   ) async {
     final String urlString =
-        "https://psychohelp-open.mybluemix.net/api/v1/appointment/patient/${patientId}/psychologist/${psychologistId}";
+        "$BASE_URL/v1/appointment/patient/${patientId}/psychologist/${psychologistId}";
     Uri url = Uri.parse(urlString);
 
     var headers = {

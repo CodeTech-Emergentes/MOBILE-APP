@@ -2,21 +2,22 @@ import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:psychohelp_app/models/psychologist.dart';
-import 'package:psychohelp_app/pages/psychologist/publication_list.dart';
+import 'package:psychohelp_app/models/nutritionist.dart';
 import 'package:psychohelp_app/utils/http_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Home_psycho extends StatefulWidget {
-  Home_psycho({Key? key}) : super(key: key);
+import 'publication_list.dart';
+
+class HomeNutritionist extends StatefulWidget {
+  HomeNutritionist({Key? key}) : super(key: key);
   @override
-  State<Home_psycho> createState() => _Home_psychoState();
+  State<HomeNutritionist> createState() => _HomeNutritionistState();
   static const String routeName = "/home_psycho";
 }
 
-class _Home_psychoState extends State<Home_psycho> {
+class _HomeNutritionistState extends State<HomeNutritionist> {
   HttpHelper httpHelper = HttpHelper();
-  Psychologist psychologist = new Psychologist(
+  Nutritionist psychologist = new Nutritionist(
       id: 1,
       name: "",
       dni: "",
@@ -47,7 +48,7 @@ class _Home_psychoState extends State<Home_psycho> {
     setState(() {
       if (psycho != "") {
         psychologist =
-            Psychologist.fromJson(jsonDecode(psycho) as Map<String, dynamic>);
+            Nutritionist.fromJson(jsonDecode(psycho) as Map<String, dynamic>);
       }
     });
   }
@@ -58,7 +59,7 @@ class _Home_psychoState extends State<Home_psycho> {
       child: Container(
         padding: EdgeInsets.only(left: 10.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text("PsychoHelp",
+          Text("Nutrix",
               style: TextStyle(
                   fontSize: 35.0,
                   fontWeight: FontWeight.bold,

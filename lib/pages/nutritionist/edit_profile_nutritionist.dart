@@ -1,21 +1,21 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:psychohelp_app/models/psychologist.dart';
+import 'package:psychohelp_app/models/nutritionist.dart';
 import 'package:psychohelp_app/utils/http_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class EditedPsychoProfile extends StatefulWidget {
-  const EditedPsychoProfile(this.pyschologist);
-  final Psychologist pyschologist;
+class EditedNutritionistProfile extends StatefulWidget {
+  const EditedNutritionistProfile(this.pyschologist);
+  final Nutritionist pyschologist;
 
   @override
-  State<EditedPsychoProfile> createState() => _EditedPsychoProfileState();
+  State<EditedNutritionistProfile> createState() => _EditedNutritionistProfileState();
 }
 
-class _EditedPsychoProfileState extends State<EditedPsychoProfile> {
+class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
   HttpHelper httpHelper = HttpHelper();
-  Psychologist? psychologist;
+  Nutritionist? psychologist;
 
   final TextEditingController controllerName = TextEditingController();
   final TextEditingController controllerEmail = TextEditingController();
@@ -57,7 +57,7 @@ class _EditedPsychoProfileState extends State<EditedPsychoProfile> {
     super.initState();
   }
 
-  Future<void> updatePsychologistData(Psychologist psychologist) async {
+  Future<void> updatePsychologistData(Nutritionist psychologist) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String user = jsonEncode(psychologist);
     prefs.setString('psychologist', user);
@@ -164,7 +164,7 @@ class _EditedPsychoProfileState extends State<EditedPsychoProfile> {
             String about = controllerAbout.text;
             String img = controllerImg.text;
 
-            Psychologist psychologistInfo = Psychologist(
+            Nutritionist psychologistInfo = Nutritionist(
                 id: widget.pyschologist.id,
                 name: name,
                 dni: widget.pyschologist.dni,

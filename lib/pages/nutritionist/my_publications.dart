@@ -3,10 +3,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:psychohelp_app/models/publication.dart';
-import 'package:psychohelp_app/pages/psychologist/create_publication.dart';
-import 'package:psychohelp_app/pages/psychologist/edit_publication.dart';
 import 'package:psychohelp_app/utils/http_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'create_publication.dart';
+import 'edit_publication.dart';
 
 class My_publications extends StatefulWidget {
   static const String routeName = "/my_publications";
@@ -81,12 +82,12 @@ class _My_publicationsState extends State<My_publications> {
       appBar: new AppBar(
         title: new Text("My Publications"),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: Icon(Icons.add, color: Colors.white),
             onPressed: () {
               navigateToCreate(context);
             },
-          )
+          ),
         ],
       ),
       body: ListView.builder(
@@ -127,13 +128,13 @@ class _My_publicationsState extends State<My_publications> {
                 ButtonBar(
                   alignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    new FlatButton(
+                    new TextButton(
                         child: Text('Edit'),
                         onPressed: () {
                           publicationInfo = publications[index];
                           navigateToEdit(context);
                         }),
-                    FlatButton(
+                    TextButton(
                         child: Text(
                           'Delete',
                           style: TextStyle(color: Colors.red),

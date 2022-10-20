@@ -2,22 +2,23 @@ import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:psychohelp_app/models/psychologist.dart';
-import 'package:psychohelp_app/pages/psychologist/edit_profile_psycho.dart';
+import 'package:psychohelp_app/models/nutritionist.dart';
 import 'package:psychohelp_app/utils/http_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Profile_psycho extends StatefulWidget {
+import 'edit_profile_nutritionist.dart';
+
+class ProfileNutritionist extends StatefulWidget {
   static const String routeName = "/profile_psycho";
   @override
-  State<Profile_psycho> createState() => _Profile_psychoState();
+  State<ProfileNutritionist> createState() => _ProfileNutritionistState();
 }
 
 bool isLoading = true;
 
-class _Profile_psychoState extends State<Profile_psycho> {
+class _ProfileNutritionistState extends State<ProfileNutritionist> {
   HttpHelper httpHelper = HttpHelper();
-  Psychologist psychologist = new Psychologist(
+  Nutritionist psychologist = new Nutritionist(
       id: 1,
       name: "",
       dni: "",
@@ -46,17 +47,17 @@ class _Profile_psychoState extends State<Profile_psycho> {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => EditedPsychoProfile(psychologist),
+          builder: (context) => EditedNutritionistProfile(psychologist),
         ));
     setState(() {
-      psychologist = result as Psychologist;
+      psychologist = result as Nutritionist;
     });
   }
 
   Future fetchPsychologist() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      psychologist = Psychologist.fromJson(
+      psychologist = Nutritionist.fromJson(
           jsonDecode(prefs.getString('psychologist')!) as Map<String, dynamic>);
     });
   }
@@ -134,7 +135,7 @@ class _Profile_psychoState extends State<Profile_psycho> {
                                   Text("Formation: " + psychologist.formation,
                                       style: TextStyle(fontSize: 20.0)),
                                   SizedBox(height: 10),
-                                  Text("CMP: " + psychologist.cmp,
+                                  Text("CNP: " + psychologist.cmp,
                                       style: TextStyle(fontSize: 20.0)),
                                   SizedBox(height: 10),
                                   Text(

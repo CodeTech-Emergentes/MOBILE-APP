@@ -2,15 +2,15 @@ import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:psychohelp_app/models/psychologist.dart';
+import 'package:psychohelp_app/models/nutritionist.dart';
 import 'package:psychohelp_app/pages/authentication/register.dart';
 import 'package:psychohelp_app/utils/http_helper.dart';
 import 'package:psychohelp_app/pages/patient/home_patient.dart';
-import 'package:psychohelp_app/pages/psychologist/home_psycho.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/patient.dart';
 import '../../utils/http_helper.dart';
+import '../nutritionist/home_nutritionist.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -31,8 +31,8 @@ class _LoginState extends State<Login> {
   @override
   void initState() {
     _passwordVisible = false;
-    myEmail.text = "fano@gmail.com";
-    myPassword.text = "password";
+    myEmail.text = "";
+    myPassword.text = "";
     super.initState();
   }
 
@@ -50,7 +50,7 @@ class _LoginState extends State<Login> {
     return patient;
   }
 
-  Future<Psychologist?> getPsychologistByEmail(email) async {
+  Future<Nutritionist?> getPsychologistByEmail(email) async {
     var psycho = await httpHelper.fetchByPsychologistEmail(email);
     return psycho;
   }
@@ -69,24 +69,25 @@ class _LoginState extends State<Login> {
         }
       }
     } catch (e) {
+      print(e);
       print("Error al logear el paciente");
     }
 
     try {
-      Psychologist? psycho = await getPsychologistByEmail(email);
+      Nutritionist? psycho = await getPsychologistByEmail(email);
       if (psycho != null) {
         savePsychologistData(psycho.id);
         if (psycho.password == password) {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Home_psycho(),
+              builder: (context) => HomeNutritionist(),
             ),
           );
         }
       }
     } catch (e) {
-      print("Error al logear el psicologo");
+      print("Error al logear el nutricionista");
     }
   }
 
@@ -108,7 +109,7 @@ class _LoginState extends State<Login> {
                           height: MediaQuery.of(context).size.height * 0.33),
                       Padding(
                         padding: EdgeInsets.only(bottom: 10.0),
-                        child: Text('Psychohelp',
+                        child: Text('Nutrix',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -207,7 +208,7 @@ class _LoginState extends State<Login> {
 
   Future<void> savePsychologistData(int id) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    Psychologist psychologist = await httpHelper.fetchPsychologistById(id);
+    Nutritionist psychologist = await httpHelper.fetchPsychologistById(id);
     String user = jsonEncode(psychologist);
     prefs.setString('psychologist', user);
     await prefs.setInt('id', id);

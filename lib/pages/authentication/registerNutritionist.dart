@@ -4,14 +4,14 @@ import 'package:psychohelp_app/pages/authentication/login.dart';
 import 'package:psychohelp_app/utils/http_helper.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 
-class RegisterPatient extends StatefulWidget {
-  static const String routeName = "/patientRegister";
+class RegisterNutritionist extends StatefulWidget {
+  static const String routeName = "/psychoRegister";
 
   @override
-  State<RegisterPatient> createState() => _RegisterPatientState();
+  State<RegisterNutritionist> createState() => _RegisterNutritionistState();
 }
 
-class _RegisterPatientState extends State<RegisterPatient> {
+class _RegisterNutritionistState extends State<RegisterNutritionist> {
   HttpHelper httpHelper = HttpHelper();
   DateTime selectedDate = DateTime.now();
 
@@ -21,22 +21,27 @@ class _RegisterPatientState extends State<RegisterPatient> {
     'Other',
   ];
 
-  String selectedValue = "TestString";
-
-  final TextEditingController controllerFirtsName = TextEditingController();
-  final TextEditingController controllerLastName = TextEditingController();
-  final TextEditingController controllerEmail = TextEditingController();
-  final TextEditingController controllerPhone = TextEditingController();
-  final TextEditingController controllerPassword = TextEditingController();
-  var controllerBirthday = TextEditingController();
-  final TextEditingController controllerImg = TextEditingController();
+  String selectedGenderValue = "-";
+  String selectedSessionValue = "-";
 
   late bool _passwordVisible;
 
+  final TextEditingController controllerName = TextEditingController();
+  final TextEditingController controllerDNI = TextEditingController();
+  var controllerBirthday = TextEditingController();
+  final TextEditingController controllerEmail = TextEditingController();
+  final TextEditingController controllerPassword = TextEditingController();
+  final TextEditingController controllerPhone = TextEditingController();
+  final TextEditingController controllerSpecialization = TextEditingController();
+  final TextEditingController controllerFormation = TextEditingController();
+  final TextEditingController controllerAbout = TextEditingController();
+  final TextEditingController controllerImg = TextEditingController();
+  final TextEditingController controllerCMP = TextEditingController();
+
   @override
   void initState() {
-    httpHelper = HttpHelper();
     _passwordVisible = false;
+    httpHelper = HttpHelper();
     super.initState();
   }
 
@@ -49,11 +54,12 @@ class _RegisterPatientState extends State<RegisterPatient> {
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
+        print(selectedDate);
         controllerBirthday.text = selectedDate.toString().substring(0, 10);
       });
     }
   }
-
+  
   bool validate(){
     if(controllerPassword.text.length < 8){
       Fluttertoast.showToast(msg: "La contraseña debe tener 8 o más caracteres", toastLength: Toast.LENGTH_SHORT);
@@ -64,11 +70,15 @@ class _RegisterPatientState extends State<RegisterPatient> {
       return false;
     }
     if(
-    controllerFirtsName.text == ""
-        || controllerLastName.text == ""
+    controllerName.text == ""
+        || controllerDNI.text == ""
         || controllerPhone.text == ""
+        || controllerSpecialization.text == ""
+        || controllerFormation.text == ""
         || controllerBirthday.text == ""
+        || controllerAbout.text == ""
         || controllerImg.text == ""
+        || controllerCMP.text == ""
     ){
       Fluttertoast.showToast(msg: "Llene todos los campos solicitados", toastLength: Toast.LENGTH_SHORT);
       return false;
@@ -80,7 +90,7 @@ class _RegisterPatientState extends State<RegisterPatient> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 40.0),
+            margin: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
             width: MediaQuery.of(context).size.width,
             child: Align(
                 alignment: Alignment.center,
@@ -91,7 +101,7 @@ class _RegisterPatientState extends State<RegisterPatient> {
                       SizedBox(height: 30),
                       Padding(
                         padding: EdgeInsets.only(bottom: 10.0),
-                        child: Text('Registro paciente',
+                        child: Text('Registro nutricionista',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -100,22 +110,12 @@ class _RegisterPatientState extends State<RegisterPatient> {
                       ),
                       SizedBox(height: 16),
                       TextField(
-                        controller: controllerFirtsName,
+                        controller: controllerName,
                         decoration: InputDecoration(
+                          border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 13, vertical: 10),
-                          border: OutlineInputBorder(),
-                          labelText: 'First name',
-                        ),
-                      ),
-                      SizedBox(height: 16),
-                      TextField(
-                        controller: controllerLastName,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 13, vertical: 10),
-                          border: OutlineInputBorder(),
-                          labelText: 'Last name',
+                          labelText: 'Full name',
                         ),
                       ),
                       SizedBox(height: 16),
@@ -140,8 +140,6 @@ class _RegisterPatientState extends State<RegisterPatient> {
                           labelText: 'Password',
                           hintText: 'Enter your password',
                           suffixIcon: IconButton(
-                              padding: EdgeInsets.zero,
-                              splashRadius: 20,
                               icon: Icon(
                                 _passwordVisible
                                     ? Icons.visibility
@@ -153,6 +151,17 @@ class _RegisterPatientState extends State<RegisterPatient> {
                                   _passwordVisible = !_passwordVisible;
                                 });
                               }),
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      TextField(
+                        controller: controllerDNI,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 13, vertical: 10),
+                          labelText: 'DNI',
                         ),
                       ),
                       SizedBox(height: 16),
@@ -180,9 +189,9 @@ class _RegisterPatientState extends State<RegisterPatient> {
                         controller: controllerPhone,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
+                          border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 13, vertical: 10),
-                          border: OutlineInputBorder(),
                           labelText: 'Phone',
                         ),
                       ),
@@ -190,10 +199,12 @@ class _RegisterPatientState extends State<RegisterPatient> {
                       DropdownButtonFormField2(
                         decoration: InputDecoration(
                           isDense: true,
-                          contentPadding: EdgeInsets.zero,
+                          contentPadding:
+                              EdgeInsets.symmetric(horizontal: 13, vertical: 0),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(4),
                           ),
+                          labelText: 'Gender',
                         ),
                         isExpanded: true,
                         hint: const Text(
@@ -205,8 +216,7 @@ class _RegisterPatientState extends State<RegisterPatient> {
                         ),
                         iconSize: 30,
                         buttonHeight: 48,
-                        buttonPadding:
-                            const EdgeInsets.only(left: 14, right: 10),
+                        buttonPadding: const EdgeInsets.only(left: 2, right: 0),
                         dropdownDecoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
                         ),
@@ -224,19 +234,59 @@ class _RegisterPatientState extends State<RegisterPatient> {
                         onChanged: (value) {
                           //Do something when changing the item if you want.
                           setState(() {
-                            selectedValue = value.toString();
+                            selectedGenderValue = value.toString();
                           });
                         },
                         onSaved: (value) {},
                       ),
                       SizedBox(height: 16),
                       TextField(
-                        controller: controllerImg,
+                        controller: controllerSpecialization,
                         decoration: InputDecoration(
+                          border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 13, vertical: 10),
+                          labelText: 'Specialization',
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      TextField(
+                        controller: controllerFormation,
+                        decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          hintText: 'Enter your Photo URL',
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 13, vertical: 10),
+                          labelText: 'Formation',
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      TextField(
+                        controller: controllerCMP,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 13, vertical: 10),
+                          labelText: 'CMP',
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      TextField(
+                        controller: controllerAbout,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 13, vertical: 10),
+                          labelText: 'About',
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      TextField(
+                        controller: controllerImg,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 13, vertical: 10),
                           labelText: 'Photo URL',
                         ),
                       ),
@@ -248,34 +298,50 @@ class _RegisterPatientState extends State<RegisterPatient> {
                               fontSize: 16,
                             )),
                         onPressed: () async {
-                          if(validate()){
-                            String firstName = controllerFirtsName.text;
-                            String lastName = controllerLastName.text;
+                          if (validate()){
+                            String name = controllerName.text;
+                            String dni = controllerDNI.text;
+                            String birthday = controllerBirthday.text;
                             String email = controllerEmail.text;
                             String password = controllerPassword.text;
-                            String date = controllerBirthday.text;
                             String phone = controllerPhone.text;
-                            String gender = selectedValue;
-                            String img =
-                                "https://img2.freepng.es/20180714/ro/kisspng-computer-icons-user-membership-vector-5b498fc76f2a07.4607730515315475914553.jpg";
-                            await httpHelper.createPatient(
+                            String specialization = controllerSpecialization.text;
+                            String formation = controllerFormation.text;
+                            String about = controllerAbout.text;
+                            String gender = selectedGenderValue;
+                            String sessionType = selectedSessionValue;
+                            String img = controllerImg.text;
+                            String cmp = controllerCMP.text;
+                            bool active = true;
+                            bool fresh = true;
+
+                            await httpHelper.createPsychologist(
                               1,
-                              firstName,
-                              lastName,
+                              name,
+                              dni,
+                              birthday,
                               email,
                               password,
-                              date,
                               phone,
+                              specialization,
+                              formation,
+                              about,
                               gender,
+                              sessionType,
                               img,
+                              cmp,
+                              active,
+                              fresh,
                             );
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Login()));
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Login()),
+                            );
                           }
                         },
                       ),
+                      SizedBox(height: 20),
                     ],
                   ),
                 ))));

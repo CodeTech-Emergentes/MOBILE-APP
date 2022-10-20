@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:psychohelp_app/pages/psychologist/list_appointments.dart';
+
+import 'list_appointments.dart';
 
 class Dating_dates extends StatefulWidget {
   static const String routeName = "/dating_dates";

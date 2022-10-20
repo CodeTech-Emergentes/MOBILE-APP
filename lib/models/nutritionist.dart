@@ -1,10 +1,9 @@
 import 'dart:convert';
 
-Psychologist psychologistFromJson(String str) =>
-    Psychologist.fromJson(json.decode(str));
-String psychologistModelToJson(Psychologist data) => json.encode(data.toJson());
+Nutritionist nutritionistFromJson(String str) => Nutritionist.fromJson(json.decode(str));
+String nutritionistModelToJson(Nutritionist data) => json.encode(data.toJson());
 
-class Psychologist {
+class Nutritionist {
   int id;
   String name;
   String dni;
@@ -22,7 +21,7 @@ class Psychologist {
   bool active;
   bool fresh;
 
-  Psychologist({
+  Nutritionist({
     required this.id,
     required this.name,
     required this.dni,
@@ -41,8 +40,8 @@ class Psychologist {
     required this.fresh,
   });
 
-  factory Psychologist.fromJson(Map<String, dynamic> json) {
-    return Psychologist(
+  factory Nutritionist.fromJson(Map<String, dynamic> json) {
+    return Nutritionist(
         id: json["id"],
         name: json["name"],
         dni: json["dni"],

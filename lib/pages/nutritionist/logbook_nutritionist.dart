@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:psychohelp_app/models/patient.dart';
 import 'package:psychohelp_app/models/appointment.dart';
-import 'package:psychohelp_app/pages/psychologist/edit_logbook_psycho.dart';
 import 'package:psychohelp_app/utils/http_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Logbook_psycho extends StatefulWidget {
+import 'edit_logbook_psycho.dart';
+
+class LogbookNutritionist extends StatefulWidget {
   static const String routeName = "/logbook_psycho";
   @override
-  State<Logbook_psycho> createState() => _Logbook_psychoState();
+  State<LogbookNutritionist> createState() => _LogbookNutritionistState();
 }
 
-class _Logbook_psychoState extends State<Logbook_psycho> {
+class _LogbookNutritionistState extends State<LogbookNutritionist> {
   Patient patient = new Patient(
       id: 0,
       firstName: '',
