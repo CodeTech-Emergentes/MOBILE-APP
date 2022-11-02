@@ -10,7 +10,8 @@ class EditedNutritionistProfile extends StatefulWidget {
   final Nutritionist nutritionist;
 
   @override
-  State<EditedNutritionistProfile> createState() => _EditedNutritionistProfileState();
+  State<EditedNutritionistProfile> createState() =>
+      _EditedNutritionistProfileState();
 }
 
 class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {

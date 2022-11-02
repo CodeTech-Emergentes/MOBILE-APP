@@ -1,6 +1,9 @@
 import 'dart:convert';
 
-Publication publicationFromJson(String str) => Publication.fromJson(json.decode(str));
+import 'package:psychohelp_app/models/nutritionist.dart';
+
+Publication publicationFromJson(String str) =>
+    Publication.fromJson(json.decode(str));
 String publicationModelToJson(Publication data) => json.encode(data.toJson());
 
 class Publication {
@@ -10,6 +13,7 @@ class Publication {
   String description;
   String photoUrl;
   String content;
+  Nutritionist nutritionist;
 
   Publication({
     required this.id,
@@ -18,6 +22,7 @@ class Publication {
     required this.description,
     required this.photoUrl,
     required this.content,
+    required this.nutritionist,
   });
 
   factory Publication.fromJson(Map<String, dynamic> json) {
@@ -28,6 +33,7 @@ class Publication {
       description: json["description"],
       photoUrl: json["photoUrl"],
       content: json["content"],
+      nutritionist: Nutritionist.fromJson(json["nutritionist"]),
     );
   }
 

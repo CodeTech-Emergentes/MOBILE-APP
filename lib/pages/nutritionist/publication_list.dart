@@ -11,7 +11,6 @@ class PublicationList extends StatefulWidget {
 class _PublicationListState extends State<PublicationList> {
   List publications = [];
   HttpHelper httpHelper = HttpHelper();
-
   @override
   void initState() {
     publications = [];
@@ -99,6 +98,22 @@ class _PublicationCardState extends State<PublicationCard> {
             child: Text(widget.publication.description,
                 textAlign: TextAlign.justify),
           ),
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
+            child: Row(
+              children: [
+                Text(
+                  "Nutricionista: ",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Flexible(child: Text(widget.publication.nutritionist.name)),
+              ],
+            ),
+          ),
         ]),
       ),
     );
@@ -135,6 +150,11 @@ class PublicationRow extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(publication.description, textAlign: TextAlign.justify),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(publication.nutritionist.name,
+                textAlign: TextAlign.justify),
           ),
         ]),
       ),

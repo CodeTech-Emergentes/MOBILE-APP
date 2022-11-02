@@ -291,7 +291,9 @@ class HttpHelper {
     final String urlString = "$BASE_URL/v1/publications/${id}";
     Uri url = Uri.parse(urlString);
 
-    var headers = {'Content-Type': 'application/json;charset=UTF-8'};
+    var headers = {
+      'Content-Type': 'application/json;charset=UTF-8',
+    };
 
     final response =
         await http.put(url, headers: headers, body: jsonEncode(request));

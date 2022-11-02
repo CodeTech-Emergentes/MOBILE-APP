@@ -2,6 +2,7 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:psychohelp_app/models/nutritionist.dart';
 import 'package:psychohelp_app/models/publication.dart';
 import 'package:psychohelp_app/utils/http_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,6 +26,23 @@ class _My_publicationsState extends State<My_publications> {
     tags: "",
     content: "",
     photoUrl: "",
+    nutritionist: Nutritionist(
+        id: 1,
+        name: "",
+        dni: "",
+        birthday: "",
+        email: "pedro@gmail.com",
+        password: "12345678",
+        phone: "987456124",
+        specialization: "Social",
+        formation: "Universidad",
+        about: "Nutricionista con 10 anios de experiencia",
+        gender: "Male",
+        sessionType: "1",
+        img: "a",
+        cmp: "a",
+        active: true,
+        fresh: true),
   );
 
   @override

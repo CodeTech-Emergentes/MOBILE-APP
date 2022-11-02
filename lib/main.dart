@@ -27,12 +27,14 @@ void main() {
       home: new Login(),
       routes: <String, WidgetBuilder>{
         Home_patient.routeName: (BuildContext context) => new Home_patient(),
-        HomeNutritionist.routeName: (BuildContext context) => new HomeNutritionist(),
+        HomeNutritionist.routeName: (BuildContext context) =>
+            new HomeNutritionist(),
         Dating_dates.routeName: (BuildContext context) => new Dating_dates(),
         Dating_dates_patient.routeName: (BuildContext context) =>
             new Dating_dates_patient(),
         List_patients.routeName: (BuildContext context) => new List_patients(),
-        ListNutritionist.routeName: (BuildContext context) => new ListNutritionist(),
+        ListNutritionist.routeName: (BuildContext context) =>
+            new ListNutritionist(),
         Appointments.routeName: (BuildContext context) => new Appointments(),
         Profile_patient.routeName: (BuildContext context) =>
             new Profile_patient(),

@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:psychohelp_app/models/nutritionist.dart';
 import 'package:psychohelp_app/utils/http_helper.dart';
 
 import '../../models/publication.dart';
@@ -106,7 +107,25 @@ class _EditedPublicationState extends State<EditedPublication> {
                 description: description,
                 tags: tags,
                 content: content,
-                photoUrl: photoUrl);
+                photoUrl: photoUrl,
+                nutritionist: Nutritionist(
+                  id: 1,
+                  name: "",
+                  dni: "",
+                  birthday: "",
+                  email: "",
+                  password: "",
+                  phone: "",
+                  specialization: "",
+                  formation: "",
+                  about: "",
+                  gender: "",
+                  sessionType: "",
+                  img: "",
+                  cmp: "",
+                  active: widget.publication.nutritionist.active,
+                  fresh: widget.publication.nutritionist.fresh,
+                ));
             await httpHelper.updatePublication(
                 widget.publication.id, publicationInfo);
             Navigator.pop(context, publicationInfo);
