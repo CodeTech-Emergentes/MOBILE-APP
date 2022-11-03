@@ -28,6 +28,7 @@ class _ListNutritionistState extends State<ListNutritionist> {
   DateTime selectedDate = DateTime.now();
 
   var controllerAppointment = TextEditingController();
+  var motiveController = TextEditingController();
   final TextEditingController controllerUrl = TextEditingController();
   final TextEditingController controllerMotive = TextEditingController();
   final TextEditingController controllerPersonalHistory =
@@ -338,6 +339,18 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                     ),
                                     children: <Widget>[
                                       TextField(
+                                        controller: motiveController,
+                                        decoration: InputDecoration(
+                                          contentPadding: EdgeInsets.symmetric(
+                                              horizontal: 13, vertical: 10),
+                                          border: OutlineInputBorder(),
+                                          labelText: 'Motivo de la cita',
+                                          hintText:
+                                              'Ingresa tu motivo para la cita',
+                                        ),
+                                      ),
+                                      SizedBox(height: 10.0),
+                                      TextField(
                                         controller: controllerAppointment,
                                         decoration: InputDecoration(
                                           contentPadding: EdgeInsets.symmetric(
@@ -361,10 +374,11 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                         child: Text("Agendar"),
                                         onPressed: () async {
                                           String meetUrl = "string";
-                                          String motive = "string";
-                                          String personalHistory = "string";
-                                          String testRealized = "string";
-                                          String treatment = "string";
+                                          String motive = motiveController.text;
+                                          String personalHistory =
+                                              "En revision";
+                                          String testRealized = "En revision";
+                                          String treatment = "En revision";
                                           String date =
                                               controllerAppointment.text;
                                           Appointment request = Appointment(

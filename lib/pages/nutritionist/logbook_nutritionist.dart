@@ -27,10 +27,10 @@ class _LogbookNutritionistState extends State<LogbookNutritionist> {
   Appointment appointmentInfo = Appointment(
       id: 1,
       meetUrl: "",
-      motive: "dolor de estómago",
-      personalHistory: "2 citas",
-      testRealized: "laboratorio",
-      treatment: "Desayunar 8 am",
+      motive: "",
+      personalHistory: "",
+      testRealized: "",
+      treatment: "",
       scheduleDate: "",
       patientId: 1,
       nutritionistId: 1);
