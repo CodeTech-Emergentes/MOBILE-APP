@@ -87,11 +87,19 @@ class _ProfileNutritionistState extends State<ProfileNutritionist> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      CircleAvatar(
-                        backgroundImage: CachedNetworkImageProvider(
-                            "https://cdn-icons-png.flaticon.com/512/5745/5745426.png"),
-                        radius: 75.0,
-                      ),
+                      if (nutritionist.gender == "Male") ...[
+                        CircleAvatar(
+                          backgroundImage: CachedNetworkImageProvider(
+                              "https://cdn-icons-png.flaticon.com/512/5745/5745426.png"),
+                          radius: 75.0,
+                        ),
+                      ] else if (nutritionist.gender == "Female") ...[
+                        CircleAvatar(
+                          backgroundImage: CachedNetworkImageProvider(
+                              "https://cdn-icons-png.flaticon.com/512/1597/1597405.png"),
+                          radius: 75.0,
+                        ),
+                      ],
                       SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -141,9 +149,7 @@ class _ProfileNutritionistState extends State<ProfileNutritionist> {
                                   Text("CNP: " + nutritionist.cmp,
                                       style: TextStyle(fontSize: 20.0)),
                                   SizedBox(height: 10),
-                                  Text(
-                                      "Session type: " +
-                                          nutritionist.sessionType,
+                                  Text("Approach: " + nutritionist.sessionType,
                                       style: TextStyle(fontSize: 20.0)),
                                   SizedBox(height: 10),
                                   Text("About: " + nutritionist.about,

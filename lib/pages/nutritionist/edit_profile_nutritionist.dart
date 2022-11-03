@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:psychohelp_app/models/nutritionist.dart';
 import 'package:psychohelp_app/utils/http_helper.dart';
@@ -30,17 +29,23 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
   final TextEditingController controllerSessionType = TextEditingController();
   final TextEditingController controllerAbout = TextEditingController();
   final TextEditingController controllerImg = TextEditingController();
-  final List<String> genderItems = [
-    'Male',
-    'Female',
-    'Other',
-  ];
+  DateTime selectedDate = DateTime.now();
 
-  final List<String> typesItems = [
-    'Lifestyle',
-    'Recommendations for a balanced diet',
-    'Medical Exams',
-  ];
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(1920, 1),
+        lastDate: DateTime.now());
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+        print(selectedDate);
+        controllerBirthday.text = selectedDate.toString().substring(0, 10);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,14 +62,14 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
     controllerName.text = widget.nutritionist.name;
     controllerEmail.text = widget.nutritionist.email;
     controllerPhone.text = widget.nutritionist.phone;
-    controllerBirthday.text = widget.nutritionist.birthday;
-    controllerGender.text = widget.nutritionist.gender;
+    controllerBirthday.text = widget.nutritionist.birthday.substring(0, 10);
+    //controllerGender.text = widget.nutritionist.gender;
     controllerSpecialization.text = widget.nutritionist.specialization;
     controllerFormation.text = widget.nutritionist.formation;
     controllerCMP.text = widget.nutritionist.cmp;
     controllerSessionType.text = widget.nutritionist.sessionType;
     controllerAbout.text = widget.nutritionist.about;
-    controllerImg.text = widget.nutritionist.img;
+    //controllerImg.text = widget.nutritionist.img;
     super.initState();
   }
 
@@ -96,22 +101,38 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
           ),
         ),
         SizedBox(height: 16),
-        TextField(
-          controller: controllerBirthday,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Birthday',
+        Container(
+          width: MediaQuery.of(context).size.width / 1.3,
+          child: TextField(
+            readOnly: true,
+            controller: controllerBirthday,
+            decoration: InputDecoration(
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 13, vertical: 10),
+              border: OutlineInputBorder(),
+              labelText: 'Birthday',
+              hintText: 'Enter your birthday',
+              suffixIcon: IconButton(
+                  splashRadius: 20,
+                  icon: Icon(
+                    Icons.date_range,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {
+                    _selectDate(context);
+                  }),
+            ),
           ),
         ),
         SizedBox(height: 16),
-        TextField(
+        /*TextField(
           controller: controllerGender,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: 'Gender',
           ),
         ),
-        SizedBox(height: 16),
+        SizedBox(height: 16),*/
         TextField(
           controller: controllerSpecialization,
           decoration: InputDecoration(
@@ -152,13 +173,13 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
           ),
         ),
         SizedBox(height: 16),
-        TextField(
+        /*TextField(
           controller: controllerImg,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: 'Photo URl',
           ),
-        ),
+        ),*/
         SizedBox(height: 16),
         ElevatedButton(
           child: Text('Save'),
@@ -167,13 +188,13 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
             String email = controllerEmail.text;
             String phone = controllerPhone.text;
             String birthday = controllerBirthday.text;
-            String gender = controllerGender.text;
+            //String gender = controllerGender.text;
             String specialization = controllerSpecialization.text;
             String formation = controllerFormation.text;
             String cmp = controllerCMP.text;
             String sessionType = controllerSessionType.text;
             String about = controllerAbout.text;
-            String img = controllerImg.text;
+            String img = "img";
 
             Nutritionist nutritionistInfo = Nutritionist(
                 id: widget.nutritionist.id,
@@ -186,7 +207,7 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
                 specialization: specialization,
                 formation: formation,
                 about: about,
-                gender: gender,
+                gender: widget.nutritionist.gender,
                 sessionType: sessionType,
                 img: img,
                 cmp: cmp,
