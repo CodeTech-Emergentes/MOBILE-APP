@@ -87,16 +87,31 @@ class _ProfileNutritionistState extends State<ProfileNutritionist> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      if (nutritionist.gender == "Male") ...[
+                      if (nutritionist.gender == "Male" &&
+                          nutritionist.img == "img") ...[
                         CircleAvatar(
                           backgroundImage: CachedNetworkImageProvider(
                               "https://cdn-icons-png.flaticon.com/512/5745/5745426.png"),
                           radius: 75.0,
                         ),
-                      ] else if (nutritionist.gender == "Female") ...[
+                      ] else if (nutritionist.gender == "Female" &&
+                          nutritionist.img == "img") ...[
                         CircleAvatar(
                           backgroundImage: CachedNetworkImageProvider(
                               "https://cdn-icons-png.flaticon.com/512/1597/1597405.png"),
+                          radius: 75.0,
+                        ),
+                      ] else if (nutritionist.gender == "Other" &&
+                          nutritionist.img == "img") ...[
+                        CircleAvatar(
+                          backgroundColor: Colors.white,
+                          backgroundImage: CachedNetworkImageProvider(
+                              "https://cdn-icons-png.flaticon.com/512/3373/3373025.png"),
+                          radius: 75.0,
+                        ),
+                      ] else if (nutritionist.img != "img") ...[
+                        CircleAvatar(
+                          backgroundImage: NetworkImage(nutritionist.img),
                           radius: 75.0,
                         ),
                       ],

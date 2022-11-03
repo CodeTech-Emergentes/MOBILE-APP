@@ -74,7 +74,7 @@ class PatientRow extends StatelessWidget {
                 arguments: patient);
           },
           child: Column(children: <Widget>[
-            if (patient.gender == "Male") ...[
+            if (patient.gender == "Male" && patient.img == "img") ...[
               Container(
                   margin: EdgeInsetsDirectional.only(
                       top: 10, bottom: 10, start: 30, end: 30),
@@ -85,7 +85,7 @@ class PatientRow extends StatelessWidget {
                     placeholder: (_, __) =>
                         Center(child: CircularProgressIndicator()),
                   ))
-            ] else if (patient.gender == "Other") ...[
+            ] else if (patient.gender == "Other" && patient.img == "img") ...[
               Container(
                   margin: EdgeInsetsDirectional.only(
                       top: 10, bottom: 10, start: 30, end: 30),
@@ -96,7 +96,7 @@ class PatientRow extends StatelessWidget {
                     placeholder: (_, __) =>
                         Center(child: CircularProgressIndicator()),
                   ))
-            ] else if (patient.gender == "Female") ...[
+            ] else if (patient.gender == "Female" && patient.img == "img") ...[
               Container(
                   margin: EdgeInsetsDirectional.only(
                       top: 10, bottom: 10, start: 30, end: 30),
@@ -107,6 +107,11 @@ class PatientRow extends StatelessWidget {
                     placeholder: (_, __) =>
                         Center(child: CircularProgressIndicator()),
                   ))
+            ] else if (patient.img != "img") ...[
+              CircleAvatar(
+                backgroundImage: NetworkImage(patient.img),
+                radius: 75.0,
+              ),
             ],
             Text(patient.firstName),
             Text(patient.lastName),

@@ -29,21 +29,22 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
   final TextEditingController controllerSessionType = TextEditingController();
   final TextEditingController controllerAbout = TextEditingController();
   final TextEditingController controllerImg = TextEditingController();
-  DateTime selectedDate = DateTime.now();
 
+  DateTime selectedDate = DateTime.now();
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: selectedDate,
         firstDate: DateTime(1920, 1),
         lastDate: DateTime.now());
+
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
         print(selectedDate);
         controllerBirthday.text = selectedDate.toString().substring(0, 10);
       });
-    }
+    } //current selected date
   }
 
   @override
@@ -69,7 +70,7 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
     controllerCMP.text = widget.nutritionist.cmp;
     controllerSessionType.text = widget.nutritionist.sessionType;
     controllerAbout.text = widget.nutritionist.about;
-    //controllerImg.text = widget.nutritionist.img;
+    controllerImg.text = widget.nutritionist.img;
     super.initState();
   }
 
@@ -173,13 +174,13 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
           ),
         ),
         SizedBox(height: 16),
-        /*TextField(
+        TextField(
           controller: controllerImg,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
             labelText: 'Photo URl',
           ),
-        ),*/
+        ),
         SizedBox(height: 16),
         ElevatedButton(
           child: Text('Save'),
@@ -194,7 +195,7 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
             String cmp = controllerCMP.text;
             String sessionType = controllerSessionType.text;
             String about = controllerAbout.text;
-            String img = "img";
+            String img = controllerImg.text;
 
             Nutritionist nutritionistInfo = Nutritionist(
                 id: widget.nutritionist.id,

@@ -75,8 +75,7 @@ class _HomeNutritionistState extends State<HomeNutritionist> {
                 child: Row(
                   children: [
                     CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          "https://cdn-icons-png.flaticon.com/512/5745/5745426.png"),
+                      backgroundImage: NetworkImage(nutritionist.img),
                       radius: 20.0,
                     ),
                     SizedBox(width: 8.0),

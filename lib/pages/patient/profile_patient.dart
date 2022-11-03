@@ -73,10 +73,31 @@ class _Profile_patientState extends State<Profile_patient> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircleAvatar(
-                backgroundImage: CachedNetworkImageProvider(patient.img),
-                radius: 75.0,
-              ),
+              if (patient.gender == "Male" && patient.img == "img") ...[
+                CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png"),
+                  radius: 75.0,
+                ),
+              ] else if (patient.gender == "Other") ...[
+                CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png"),
+                  radius: 75.0,
+                ),
+              ] else if (patient.gender == "Female" &&
+                  patient.img == "img") ...[
+                CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgp-e7MKZn4WU0yEmVMsfLKj9IJk4XH_OP8ylE0G202a7R4R_-T24gHBFVs3dX0I25y_w&usqp=CAU"),
+                  radius: 75.0,
+                ),
+              ] else if (patient.img != "img") ...[
+                CircleAvatar(
+                  backgroundImage: NetworkImage(patient.img),
+                  radius: 75.0,
+                ),
+              ],
               SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -96,13 +96,42 @@ class _ListNutritionistState extends State<ListNutritionist> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Column(children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(top: 10.0),
-                    child: CircleAvatar(
-                        radius: 50,
-                        backgroundImage: NetworkImage(
-                            "https://cdn-icons-png.flaticon.com/512/5745/5745426.png")),
-                  ),
+                  if (nutritionists[index].gender == "Male" &&
+                          nutritionists[index].img == "img" ||
+                      nutritionists[index].img == "test" ||
+                      nutritionists[index].img == "a") ...[
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: CircleAvatar(
+                          radius: 65,
+                          backgroundImage: NetworkImage(
+                              "https://cdn-icons-png.flaticon.com/512/5745/5745426.png")),
+                    ),
+                  ] else if (nutritionists[index].gender == "Female" &&
+                      nutritionists[index].img == "img") ...[
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: CircleAvatar(
+                          radius: 65,
+                          backgroundImage: NetworkImage(
+                              "https://cdn-icons-png.flaticon.com/512/1597/1597405.png")),
+                    ),
+                  ] else if (nutritionists[index].gender == "Other" &&
+                      nutritionists[index].img == "img") ...[
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: CircleAvatar(
+                          backgroundColor: Colors.white,
+                          radius: 65,
+                          backgroundImage: NetworkImage(
+                              "https://cdn-icons-png.flaticon.com/512/3373/3373025.png")),
+                    ),
+                  ] else if (nutritionists[index].img != "img") ...[
+                    CircleAvatar(
+                      backgroundImage: NetworkImage(nutritionists[index].img),
+                      radius: 75.0,
+                    ),
+                  ],
                   SizedBox(
                     height: 10.0,
                   ),
@@ -130,23 +159,97 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                       ),
                                       contentPadding: EdgeInsets.all(16.0),
                                       children: <Widget>[
-                                        Container(
-                                          margin: EdgeInsets.only(top: 10.0),
-                                          child: CircleAvatar(
-                                            backgroundColor: Colors.green,
-                                            radius: 90,
+                                        if (nutritionists[index].gender ==
+                                                    "Male" &&
+                                                nutritionists[index].img ==
+                                                    "img" ||
+                                            nutritionists[index].img ==
+                                                "test" ||
+                                            nutritionists[index].img ==
+                                                "a") ...[
+                                          Container(
+                                            margin: EdgeInsets.only(top: 10.0),
                                             child: CircleAvatar(
-                                              backgroundColor:
-                                                  Colors.greenAccent[100],
-                                              radius: 85,
+                                              backgroundColor: Colors.green,
+                                              radius: 90,
                                               child: CircleAvatar(
-                                                backgroundImage: NetworkImage(
-                                                    "https://cdn-icons-png.flaticon.com/512/5745/5745426.png"), //NetworkImage
-                                                radius: 75,
+                                                backgroundColor:
+                                                    Colors.greenAccent[100],
+                                                radius: 85,
+                                                child: CircleAvatar(
+                                                  backgroundImage: NetworkImage(
+                                                      "https://cdn-icons-png.flaticon.com/512/5745/5745426.png"), //NetworkImage
+                                                  radius: 75,
+                                                ), //CircleAvatar
                                               ), //CircleAvatar
-                                            ), //CircleAvatar
+                                            ),
                                           ),
-                                        ),
+                                        ] else if (nutritionists[index]
+                                                    .gender ==
+                                                "Female" &&
+                                            nutritionists[index].img ==
+                                                "img") ...[
+                                          Container(
+                                            margin: EdgeInsets.only(top: 10.0),
+                                            child: CircleAvatar(
+                                              backgroundColor: Colors.green,
+                                              radius: 90,
+                                              child: CircleAvatar(
+                                                backgroundColor:
+                                                    Colors.greenAccent[100],
+                                                radius: 85,
+                                                child: CircleAvatar(
+                                                  backgroundImage: NetworkImage(
+                                                      "https://cdn-icons-png.flaticon.com/512/1597/1597405.png"), //NetworkImage
+                                                  radius: 75,
+                                                ), //CircleAvatar
+                                              ), //CircleAvatar
+                                            ),
+                                          ),
+                                        ] else if (nutritionists[index]
+                                                    .gender ==
+                                                "Other" &&
+                                            nutritionists[index].img ==
+                                                "img") ...[
+                                          Container(
+                                            margin: EdgeInsets.only(top: 10.0),
+                                            child: CircleAvatar(
+                                              backgroundColor: Colors.green,
+                                              radius: 90,
+                                              child: CircleAvatar(
+                                                backgroundColor:
+                                                    Colors.greenAccent[100],
+                                                radius: 85,
+                                                child: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  backgroundImage: NetworkImage(
+                                                      "https://cdn-icons-png.flaticon.com/512/3373/3373025.png"), //NetworkImage
+                                                  radius: 75,
+                                                ), //CircleAvatar
+                                              ), //CircleAvatar
+                                            ),
+                                          ),
+                                        ] else if (nutritionists[index].img !=
+                                            "img") ...[
+                                          Container(
+                                            margin: EdgeInsets.only(top: 10.0),
+                                            child: CircleAvatar(
+                                              backgroundColor: Colors.green,
+                                              radius: 90,
+                                              child: CircleAvatar(
+                                                backgroundColor:
+                                                    Colors.greenAccent[100],
+                                                radius: 85,
+                                                child: CircleAvatar(
+                                                  backgroundImage: NetworkImage(
+                                                      nutritionists[index]
+                                                          .img), //NetworkImage
+                                                  radius: 75,
+                                                ), //CircleAvatar
+                                              ), //CircleAvatar
+                                            ),
+                                          ),
+                                        ],
                                         Text("Nombre: ",
                                             style: TextStyle(
                                                 fontSize: 20.0,
