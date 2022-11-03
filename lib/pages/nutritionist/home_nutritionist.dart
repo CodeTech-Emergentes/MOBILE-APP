@@ -83,7 +83,7 @@ class _HomeNutritionistState extends State<HomeNutritionist> {
                     Flexible(
                       child: Text(nutritionist.name,
                           style:
-                              TextStyle(fontSize: 20.0, color: Colors.white)),
+                              TextStyle(fontSize: 18.0, color: Colors.white)),
                     ),
                   ],
                 ),
@@ -92,9 +92,7 @@ class _HomeNutritionistState extends State<HomeNutritionist> {
           )
         ]),
       ),
-      decoration: new BoxDecoration(
-        color: Colors.blue,
-      ),
+      decoration: new BoxDecoration(color: Color.fromRGBO(137, 197, 204, 5)),
     );
 
     Container getItem(Icon icon, String description, String route) {
@@ -115,7 +113,7 @@ class _HomeNutritionistState extends State<HomeNutritionist> {
     ListView listView = new ListView(
       children: [
         Container(
-            height: MediaQuery.of(context).size.height / 3.3, child: header),
+            height: MediaQuery.of(context).size.height / 3.5, child: header),
         getItem(new Icon(Icons.home), "Home", "/home_nutritionist"),
         getItem(new Icon(Icons.person), "Profile", "/profile_nutritionist"),
         getItem(new Icon(Icons.people), "Patient list", "/list_patients"),

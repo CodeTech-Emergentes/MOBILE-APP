@@ -49,7 +49,6 @@ class _Home_patientState extends State<Home_patient> {
     fetchPatient();
     var header = new DrawerHeader(
       child: Container(
-        padding: EdgeInsets.only(left: 10.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text("Nutrix",
               style: TextStyle(
@@ -59,28 +58,46 @@ class _Home_patientState extends State<Home_patient> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Bienvenido,",
+              Text("Bienvenido",
                   style: TextStyle(fontSize: 20.0, color: Colors.white)),
               Container(
-                margin: EdgeInsets.only(top: 4.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(patient.img),
-                      radius: 20.0,
-                    ),
+                    if (patient.gender == "Male") ...[
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png"),
+                        radius: 20.0,
+                      ),
+                    ] else if (patient.gender == "Other") ...[
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            "https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png"),
+                        radius: 20.0,
+                      ),
+                    ] else if (patient.gender == "Female") ...[
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgp-e7MKZn4WU0yEmVMsfLKj9IJk4XH_OP8ylE0G202a7R4R_-T24gHBFVs3dX0I25y_w&usqp=CAU"),
+                        radius: 20.0,
+                      ),
+                    ],
                     SizedBox(width: 8.0),
-                    Text(patient.firstName + " " + patient.lastName,
-                        style: TextStyle(fontSize: 20.0, color: Colors.white)),
+                    Flexible(
+                      child: Text(patient.firstName + " " + patient.lastName,
+                          style:
+                              TextStyle(fontSize: 18.0, color: Colors.white)),
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           )
         ]),
       ),
       decoration: new BoxDecoration(
-        color: Colors.blue,
+        color: Color.fromRGBO(137, 197, 204, 5),
       ),
     );
 
@@ -101,6 +118,8 @@ class _Home_patientState extends State<Home_patient> {
 
     ListView listView = new ListView(
       children: <Widget>[
+        /*Container(
+            height: MediaQuery.of(context).size.height / 3.5, child: header),*/
         header,
         getItem(new Icon(Icons.home), "Home", "/home_patient"),
         getItem(new Icon(Icons.person), "Profile", "/profile_patient"),

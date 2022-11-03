@@ -74,15 +74,40 @@ class PatientRow extends StatelessWidget {
                 arguments: patient);
           },
           child: Column(children: <Widget>[
-            Container(
-                margin: EdgeInsetsDirectional.only(
-                    top: 10, bottom: 10, start: 30, end: 30),
-                child: CachedNetworkImage(
-                  imageUrl: patient.img,
-                  fit: BoxFit.fill,
-                  placeholder: (_, __) =>
-                      Center(child: CircularProgressIndicator()),
-                )),
+            if (patient.gender == "Male") ...[
+              Container(
+                  margin: EdgeInsetsDirectional.only(
+                      top: 10, bottom: 10, start: 30, end: 30),
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        "https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png",
+                    fit: BoxFit.fill,
+                    placeholder: (_, __) =>
+                        Center(child: CircularProgressIndicator()),
+                  ))
+            ] else if (patient.gender == "Other") ...[
+              Container(
+                  margin: EdgeInsetsDirectional.only(
+                      top: 10, bottom: 10, start: 30, end: 30),
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        "https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png",
+                    fit: BoxFit.fill,
+                    placeholder: (_, __) =>
+                        Center(child: CircularProgressIndicator()),
+                  ))
+            ] else if (patient.gender == "Female") ...[
+              Container(
+                  margin: EdgeInsetsDirectional.only(
+                      top: 10, bottom: 10, start: 30, end: 30),
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgp-e7MKZn4WU0yEmVMsfLKj9IJk4XH_OP8ylE0G202a7R4R_-T24gHBFVs3dX0I25y_w&usqp=CAU",
+                    fit: BoxFit.fill,
+                    placeholder: (_, __) =>
+                        Center(child: CircularProgressIndicator()),
+                  ))
+            ],
             Text(patient.firstName),
             Text(patient.lastName),
           ]),

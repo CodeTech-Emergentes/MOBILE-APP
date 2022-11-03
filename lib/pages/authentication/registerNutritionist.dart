@@ -21,6 +21,11 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
     'Other',
   ];
 
+  final List<String> typesItems = [
+    'Lifestyle',
+    'Recommendations for a balanced diet',
+    'Medical Exams',
+  ];
   String selectedGenderValue = "-";
   String selectedSessionValue = "-";
 
@@ -339,6 +344,54 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                                   horizontal: 13, vertical: 10),
                               labelText: 'About',
                             ),
+                          ),
+                        ),
+                        SizedBox(height: 16),
+                        Container(
+                          width: MediaQuery.of(context).size.width / 1.3,
+                          child: DropdownButtonFormField2(
+                            decoration: InputDecoration(
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 13, vertical: 0),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              labelText: 'Approach',
+                            ),
+                            isExpanded: true,
+                            hint: const Text(
+                              'Approach',
+                            ),
+                            icon: const Icon(
+                              Icons.arrow_drop_down,
+                              color: Colors.black45,
+                            ),
+                            iconSize: 30,
+                            buttonHeight: 48,
+                            buttonPadding:
+                                const EdgeInsets.only(left: 2, right: 0),
+                            dropdownDecoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            items: typesItems
+                                .map((item) => DropdownMenuItem<String>(
+                                      value: item,
+                                      child: Text(
+                                        item,
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ))
+                                .toList(),
+                            onChanged: (value) {
+                              //Do something when changing the item if you want.
+                              setState(() {
+                                selectedSessionValue = value.toString();
+                              });
+                            },
+                            onSaved: (value) {},
                           ),
                         ),
                         SizedBox(height: 16),

@@ -30,7 +30,17 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
   final TextEditingController controllerSessionType = TextEditingController();
   final TextEditingController controllerAbout = TextEditingController();
   final TextEditingController controllerImg = TextEditingController();
+  final List<String> genderItems = [
+    'Male',
+    'Female',
+    'Other',
+  ];
 
+  final List<String> typesItems = [
+    'Lifestyle',
+    'Recommendations for a balanced diet',
+    'Medical Exams',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

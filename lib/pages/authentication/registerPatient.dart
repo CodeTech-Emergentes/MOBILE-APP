@@ -69,8 +69,7 @@ class _RegisterPatientState extends State<RegisterPatient> {
     if (controllerFirtsName.text == "" ||
         controllerLastName.text == "" ||
         controllerPhone.text == "" ||
-        controllerBirthday.text == "" ||
-        controllerImg.text == "") {
+        controllerBirthday.text == "") {
       Fluttertoast.showToast(
           msg: "Llene todos los campos solicitados",
           toastLength: Toast.LENGTH_SHORT);
@@ -83,207 +82,215 @@ class _RegisterPatientState extends State<RegisterPatient> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: new AppBar(
-          title: new Text("Registro de paciente"),
+          iconTheme: IconThemeData(color: Colors.black),
+          backgroundColor: Colors.white,
+          title: new Text(
+            "Registro de Paciente",
+            style: TextStyle(color: Colors.black),
+          ),
         ),
-        body: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 40.0),
-            width: MediaQuery.of(context).size.width,
-            child: Align(
-                alignment: Alignment.center,
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SizedBox(height: 30),
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 10.0),
-                        child: Text('Registro paciente',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                            )),
-                      ),
-                      SizedBox(height: 17),
-                      TextField(
-                        controller: controllerFirtsName,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 13, vertical: 10),
-                          border: OutlineInputBorder(),
-                          labelText: 'First name',
+        body: Stack(children: [
+          Container(
+            color: Color.fromRGBO(137, 197, 204, 10),
+          ),
+          Center(
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.85,
+              width: MediaQuery.of(context).size.width / 1.15,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
+              ),
+            ),
+          ),
+          Container(
+              margin: const EdgeInsets.symmetric(horizontal: 40.0),
+              width: MediaQuery.of(context).size.width,
+              child: Align(
+                  alignment: Alignment.center,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        //SizedBox(height: 30),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 10.0),
+                          child: Text('Registro paciente',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30,
+                              )),
                         ),
-                      ),
-                      SizedBox(height: 16),
-                      TextField(
-                        controller: controllerLastName,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 13, vertical: 10),
-                          border: OutlineInputBorder(),
-                          labelText: 'Last name',
-                        ),
-                      ),
-                      SizedBox(height: 16),
-                      TextField(
-                        controller: controllerEmail,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 13, vertical: 10),
-                          border: OutlineInputBorder(),
-                          labelText: 'Email',
-                        ),
-                      ),
-                      SizedBox(height: 16),
-                      TextField(
-                        controller: controllerPassword,
-                        obscureText: !_passwordVisible,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 13, vertical: 10),
-                          isDense: true,
-                          border: OutlineInputBorder(),
-                          labelText: 'Password',
-                          hintText: 'Enter your password',
-                          suffixIcon: IconButton(
-                              padding: EdgeInsets.zero,
-                              splashRadius: 20,
-                              icon: Icon(
-                                _passwordVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Colors.black,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  _passwordVisible = !_passwordVisible;
-                                });
-                              }),
-                        ),
-                      ),
-                      SizedBox(height: 16),
-                      TextField(
-                        controller: controllerBirthday,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 13, vertical: 10),
-                          border: OutlineInputBorder(),
-                          labelText: 'Birthday',
-                          hintText: 'Enter your birthday',
-                          suffixIcon: IconButton(
-                              splashRadius: 20,
-                              icon: Icon(
-                                Icons.date_range,
-                                color: Colors.black,
-                              ),
-                              onPressed: () {
-                                _selectDate(context);
-                              }),
-                        ),
-                      ),
-                      SizedBox(height: 16),
-                      TextField(
-                        controller: controllerPhone,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 13, vertical: 10),
-                          border: OutlineInputBorder(),
-                          labelText: 'Phone',
-                        ),
-                      ),
-                      SizedBox(height: 16),
-                      DropdownButtonFormField2(
-                        decoration: InputDecoration(
-                          isDense: true,
-                          contentPadding: EdgeInsets.zero,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(4),
+                        SizedBox(height: 15),
+                        TextField(
+                          controller: controllerFirtsName,
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 13, vertical: 10),
+                            border: OutlineInputBorder(),
+                            labelText: 'First name',
                           ),
                         ),
-                        isExpanded: true,
-                        hint: const Text(
-                          'Gender',
+                        SizedBox(height: 15),
+                        TextField(
+                          controller: controllerLastName,
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 13, vertical: 10),
+                            border: OutlineInputBorder(),
+                            labelText: 'Last name',
+                          ),
                         ),
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: Colors.black45,
+                        SizedBox(height: 16),
+                        TextField(
+                          controller: controllerEmail,
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 13, vertical: 10),
+                            border: OutlineInputBorder(),
+                            labelText: 'Email',
+                          ),
                         ),
-                        iconSize: 30,
-                        buttonHeight: 48,
-                        buttonPadding:
-                            const EdgeInsets.only(left: 14, right: 10),
-                        dropdownDecoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
+                        SizedBox(height: 16),
+                        TextField(
+                          controller: controllerPassword,
+                          obscureText: !_passwordVisible,
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 13, vertical: 10),
+                            isDense: true,
+                            border: OutlineInputBorder(),
+                            labelText: 'Password',
+                            hintText: 'Enter your password',
+                            suffixIcon: IconButton(
+                                padding: EdgeInsets.zero,
+                                splashRadius: 20,
+                                icon: Icon(
+                                  _passwordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                  color: Colors.black,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _passwordVisible = !_passwordVisible;
+                                  });
+                                }),
+                          ),
                         ),
-                        items: genderItems
-                            .map((item) => DropdownMenuItem<String>(
-                                  value: item,
-                                  child: Text(
-                                    item,
-                                    style: const TextStyle(
-                                      fontSize: 16,
+                        SizedBox(height: 16),
+                        TextField(
+                          controller: controllerBirthday,
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 13, vertical: 10),
+                            border: OutlineInputBorder(),
+                            labelText: 'Birthday',
+                            hintText: 'Enter your birthday',
+                            suffixIcon: IconButton(
+                                splashRadius: 20,
+                                icon: Icon(
+                                  Icons.date_range,
+                                  color: Colors.black,
+                                ),
+                                onPressed: () {
+                                  _selectDate(context);
+                                }),
+                          ),
+                        ),
+                        SizedBox(height: 16),
+                        TextField(
+                          controller: controllerPhone,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 13, vertical: 10),
+                            border: OutlineInputBorder(),
+                            labelText: 'Phone',
+                          ),
+                        ),
+                        SizedBox(height: 16),
+                        DropdownButtonFormField2(
+                          decoration: InputDecoration(
+                            isDense: true,
+                            contentPadding: EdgeInsets.zero,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                          ),
+                          isExpanded: true,
+                          hint: const Text(
+                            'Gender',
+                          ),
+                          icon: const Icon(
+                            Icons.arrow_drop_down,
+                            color: Colors.black45,
+                          ),
+                          iconSize: 30,
+                          buttonHeight: 48,
+                          buttonPadding:
+                              const EdgeInsets.only(left: 14, right: 10),
+                          dropdownDecoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          items: genderItems
+                              .map((item) => DropdownMenuItem<String>(
+                                    value: item,
+                                    child: Text(
+                                      item,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                      ),
                                     ),
-                                  ),
-                                ))
-                            .toList(),
-                        onChanged: (value) {
-                          //Do something when changing the item if you want.
-                          setState(() {
-                            selectedValue = value.toString();
-                          });
-                        },
-                        onSaved: (value) {},
-                      ),
-                      SizedBox(height: 16),
-                      TextField(
-                        controller: controllerImg,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 13, vertical: 10),
-                          border: OutlineInputBorder(),
-                          hintText: 'Enter your Photo URL',
-                          labelText: 'Photo URL',
+                                  ))
+                              .toList(),
+                          onChanged: (value) {
+                            //Do something when changing the item if you want.
+                            setState(() {
+                              selectedValue = value.toString();
+                            });
+                          },
+                          onSaved: (value) {},
                         ),
-                      ),
-                      SizedBox(height: 16),
-                      ElevatedButton(
-                        child: Text('Registrarme',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            )),
-                        onPressed: () async {
-                          if (validate()) {
-                            String firstName = controllerFirtsName.text;
-                            String lastName = controllerLastName.text;
-                            String email = controllerEmail.text;
-                            String password = controllerPassword.text;
-                            String date = controllerBirthday.text;
-                            String phone = controllerPhone.text;
-                            String gender = selectedValue;
-                            String img =
-                                "https://img2.freepng.es/20180714/ro/kisspng-computer-icons-user-membership-vector-5b498fc76f2a07.4607730515315475914553.jpg";
-                            await httpHelper.createPatient(
-                              1,
-                              firstName,
-                              lastName,
-                              email,
-                              password,
-                              date,
-                              phone,
-                              gender,
-                              img,
-                            );
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Login()));
-                          }
-                        },
-                      ),
-                    ],
-                  ),
-                ))));
+                        SizedBox(height: 16),
+                        ElevatedButton(
+                          child: Text('Registrarme',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              )),
+                          onPressed: () async {
+                            if (validate()) {
+                              String firstName = controllerFirtsName.text;
+                              String lastName = controllerLastName.text;
+                              String email = controllerEmail.text;
+                              String password = controllerPassword.text;
+                              String date = controllerBirthday.text;
+                              String phone = controllerPhone.text;
+                              String gender = selectedValue;
+                              String img = "img";
+                              await httpHelper.createPatient(
+                                1,
+                                firstName,
+                                lastName,
+                                email,
+                                password,
+                                date,
+                                phone,
+                                gender,
+                                img,
+                              );
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Login()));
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                  ))),
+        ]));
   }
 }

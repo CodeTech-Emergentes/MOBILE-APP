@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'edit_logbook_psycho.dart';
 
 class LogbookNutritionist extends StatefulWidget {
-  static const String routeName = "/logbook_psycho";
+  static String routeName = "/logbook_nutritionist";
   @override
   State<LogbookNutritionist> createState() => _LogbookNutritionistState();
 }
