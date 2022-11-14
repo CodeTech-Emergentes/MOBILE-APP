@@ -37,7 +37,7 @@ class _CreatePublicationState extends State<CreatePublication> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Create publication'),
+        title: new Text('Crear Publicación'),
       ),
       body: getBody(),
     );
@@ -53,7 +53,7 @@ class _CreatePublicationState extends State<CreatePublication> {
           controller: controllerTitle,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Title',
+            labelText: 'Título',
           ),
         ),
         SizedBox(height: 16),
@@ -61,7 +61,7 @@ class _CreatePublicationState extends State<CreatePublication> {
           controller: controllerDescription,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Description',
+            labelText: 'Descripción',
           ),
         ),
         SizedBox(height: 16),
@@ -69,7 +69,7 @@ class _CreatePublicationState extends State<CreatePublication> {
           controller: controllerTag,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Tag',
+            labelText: 'Etiqueta',
           ),
         ),
         SizedBox(height: 16),
@@ -77,26 +77,18 @@ class _CreatePublicationState extends State<CreatePublication> {
           controller: controllerContent,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Content',
-          ),
-        ),
-        SizedBox(height: 16),
-        TextField(
-          controller: controllerPhotoUrl,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Photo Url',
+            labelText: 'Contenido',
           ),
         ),
         SizedBox(height: 16),
         ElevatedButton(
-          child: Text('Create'),
+          child: Text('Crear Publicación'),
           onPressed: () async {
             String title = controllerTitle.text;
             String description = controllerDescription.text;
             String tags = controllerTag.text;
             String content = controllerContent.text;
-            String photoUrl = controllerPhotoUrl.text;
+            String photoUrl = "a";
 
             await httpHelper.createPublication(
                 title, tags, description, photoUrl, content, id);

@@ -129,7 +129,7 @@ class _RegisterPatientState extends State<RegisterPatient> {
                             contentPadding: EdgeInsets.symmetric(
                                 horizontal: 13, vertical: 10),
                             border: OutlineInputBorder(),
-                            labelText: 'First name',
+                            labelText: 'Nombres',
                           ),
                         ),
                         SizedBox(height: 15),
@@ -139,7 +139,7 @@ class _RegisterPatientState extends State<RegisterPatient> {
                             contentPadding: EdgeInsets.symmetric(
                                 horizontal: 13, vertical: 10),
                             border: OutlineInputBorder(),
-                            labelText: 'Last name',
+                            labelText: 'Apellidos',
                           ),
                         ),
                         SizedBox(height: 16),
@@ -149,7 +149,7 @@ class _RegisterPatientState extends State<RegisterPatient> {
                             contentPadding: EdgeInsets.symmetric(
                                 horizontal: 13, vertical: 10),
                             border: OutlineInputBorder(),
-                            labelText: 'Email',
+                            labelText: 'Correo Electrónico',
                           ),
                         ),
                         SizedBox(height: 16),
@@ -161,8 +161,8 @@ class _RegisterPatientState extends State<RegisterPatient> {
                                 horizontal: 13, vertical: 10),
                             isDense: true,
                             border: OutlineInputBorder(),
-                            labelText: 'Password',
-                            hintText: 'Enter your password',
+                            labelText: 'Contraseña',
+                            hintText: 'Ingrese su contraseña',
                             suffixIcon: IconButton(
                                 padding: EdgeInsets.zero,
                                 splashRadius: 20,
@@ -186,8 +186,8 @@ class _RegisterPatientState extends State<RegisterPatient> {
                             contentPadding: EdgeInsets.symmetric(
                                 horizontal: 13, vertical: 10),
                             border: OutlineInputBorder(),
-                            labelText: 'Birthday',
-                            hintText: 'Enter your birthday',
+                            labelText: 'Fecha de Nacimiento',
+                            hintText: 'Ingrese su fecha de nacimiento',
                             suffixIcon: IconButton(
                                 splashRadius: 20,
                                 icon: Icon(
@@ -207,7 +207,7 @@ class _RegisterPatientState extends State<RegisterPatient> {
                             contentPadding: EdgeInsets.symmetric(
                                 horizontal: 13, vertical: 10),
                             border: OutlineInputBorder(),
-                            labelText: 'Phone',
+                            labelText: 'Teléfono',
                           ),
                         ),
                         SizedBox(height: 16),
@@ -221,7 +221,7 @@ class _RegisterPatientState extends State<RegisterPatient> {
                           ),
                           isExpanded: true,
                           hint: const Text(
-                            'Gender',
+                            'Género',
                           ),
                           icon: const Icon(
                             Icons.arrow_drop_down,

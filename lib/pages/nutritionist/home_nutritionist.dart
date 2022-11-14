@@ -137,12 +137,14 @@ class _HomeNutritionistState extends State<HomeNutritionist> {
       children: [
         Container(
             height: MediaQuery.of(context).size.height / 3.5, child: header),
-        getItem(new Icon(Icons.home), "Home", "/home_nutritionist"),
-        getItem(new Icon(Icons.person), "Profile", "/profile_nutritionist"),
-        getItem(new Icon(Icons.people), "Patient list", "/list_patients"),
-        getItem(new Icon(Icons.date_range), "My appointments", "/dating_dates"),
-        getItem(new Icon(Icons.public), "My publications", "/my_publications"),
-        getItem(new Icon(Icons.logout), "Logout", "/login"),
+        getItem(new Icon(Icons.list_alt), "Lista de Publicaciones",
+            "/home_nutritionist"),
+        getItem(new Icon(Icons.person), "Perfil", "/profile_nutritionist"),
+        getItem(new Icon(Icons.people), "Lista de Pacientes", "/list_patients"),
+        getItem(new Icon(Icons.date_range), "Mis citas", "/dating_dates"),
+        getItem(
+            new Icon(Icons.public), "Mis publicaciones", "/my_publications"),
+        getItem(new Icon(Icons.logout), "Cerrar sesión", "/login"),
       ],
     );
 
@@ -156,7 +158,7 @@ class _HomeNutritionistState extends State<HomeNutritionist> {
     fetchNutritionist();
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Home nutritionist"),
+        title: new Text("Menú del nutricionista"),
       ),
       body: PublicationList(),
       drawer: new Drawer(

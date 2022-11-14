@@ -95,7 +95,7 @@ class _Logbook_patientState extends State<Logbook_patient> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Identification Data",
+                      "Datos Personales",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
@@ -212,7 +212,8 @@ class _Logbook_patientState extends State<Logbook_patient> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                "Schedule: " + appointmentInfo.scheduleDate,
+                                "Resultados de la cita: " +
+                                    appointmentInfo.scheduleDate,
                                 style: TextStyle(
                                     fontSize: 18, fontWeight: FontWeight.bold),
                               ),
@@ -221,7 +222,7 @@ class _Logbook_patientState extends State<Logbook_patient> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                "Motive: " + appointmentInfo.motive,
+                                "Motivo: " + appointmentInfo.motive,
                                 style: TextStyle(fontSize: 14),
                               ),
                             ),
@@ -229,7 +230,7 @@ class _Logbook_patientState extends State<Logbook_patient> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                "History: " + appointmentInfo.personalHistory,
+                                "Historia: " + appointmentInfo.personalHistory,
                                 style: TextStyle(fontSize: 14),
                               ),
                             ),
@@ -237,7 +238,7 @@ class _Logbook_patientState extends State<Logbook_patient> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                "Test: " + appointmentInfo.testRealized,
+                                "Examen: " + appointmentInfo.testRealized,
                                 style: TextStyle(fontSize: 14),
                               ),
                             ),
@@ -245,7 +246,7 @@ class _Logbook_patientState extends State<Logbook_patient> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                "Treatment: " + appointmentInfo.treatment,
+                                "Tratamiento: " + appointmentInfo.treatment,
                                 style: TextStyle(fontSize: 14),
                               ),
                             ),

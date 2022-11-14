@@ -85,7 +85,7 @@ class _ListNutritionistState extends State<ListNutritionist> {
     final PaymentController controller = Get.put(PaymentController());
     return Scaffold(
         appBar: new AppBar(
-          title: new Text("Nutritionist list"),
+          title: new Text("Lista de Nutricionistas"),
         ),
         body: ListView.builder(
             padding: EdgeInsets.all(30.0),
@@ -145,7 +145,7 @@ class _ListNutritionistState extends State<ListNutritionist> {
                     alignment: MainAxisAlignment.center,
                     children: <Widget>[
                       TextButton(
-                        child: Text("See more"),
+                        child: Text("Ver más"),
                         onPressed: () {
                           showDialog(
                               context: context,
@@ -356,9 +356,9 @@ class _ListNutritionistState extends State<ListNutritionist> {
                                           contentPadding: EdgeInsets.symmetric(
                                               horizontal: 13, vertical: 10),
                                           border: OutlineInputBorder(),
-                                          labelText: 'Appointment Date',
+                                          labelText: 'Fecha de la cita',
                                           hintText:
-                                              'Enter your Appointment Date',
+                                              'Ingresar la fecha de la cita',
                                           suffixIcon: IconButton(
                                               splashRadius: 20,
                                               icon: Icon(

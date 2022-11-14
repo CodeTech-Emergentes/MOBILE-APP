@@ -51,7 +51,7 @@ class _Edit_Logbook_AppointmentState extends State<Edit_Logbook_Appointment> {
           controller: controllerMotive,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Motive',
+            labelText: 'Motivo',
           ),
         ),
         SizedBox(height: 16),
@@ -59,7 +59,7 @@ class _Edit_Logbook_AppointmentState extends State<Edit_Logbook_Appointment> {
           controller: controllerHistory,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'History',
+            labelText: 'Historia',
           ),
         ),
         SizedBox(height: 16),
@@ -67,7 +67,7 @@ class _Edit_Logbook_AppointmentState extends State<Edit_Logbook_Appointment> {
           controller: controllerTest,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Test',
+            labelText: 'Examen',
           ),
         ),
         SizedBox(height: 16),
@@ -75,12 +75,12 @@ class _Edit_Logbook_AppointmentState extends State<Edit_Logbook_Appointment> {
           controller: controllerTreatment,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Treatment',
+            labelText: 'Tratamiento',
           ),
         ),
         SizedBox(height: 16),
         ElevatedButton(
-          child: Text('Edited'),
+          child: Text('Crear'),
           onPressed: () async {
             String motive = controllerMotive.text;
             String history = controllerHistory.text;

@@ -51,7 +51,7 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Profile'),
+        title: Text('Editar Perfil'),
       ),
       body: getBody(),
     );
@@ -90,7 +90,7 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
           controller: controllerName,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Name',
+            labelText: 'Nombre',
           ),
         ),
         SizedBox(height: 16),
@@ -98,7 +98,7 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
           controller: controllerPhone,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Phone',
+            labelText: 'Telefono',
           ),
         ),
         SizedBox(height: 16),
@@ -111,8 +111,8 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
               contentPadding:
                   EdgeInsets.symmetric(horizontal: 13, vertical: 10),
               border: OutlineInputBorder(),
-              labelText: 'Birthday',
-              hintText: 'Enter your birthday',
+              labelText: 'Fecha de Nacimiento',
+              hintText: 'Ingrese su fecha de nacimiento',
               suffixIcon: IconButton(
                   splashRadius: 20,
                   icon: Icon(
@@ -138,7 +138,7 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
           controller: controllerSpecialization,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Specialization',
+            labelText: 'Especialidad',
           ),
         ),
         SizedBox(height: 16),
@@ -146,7 +146,7 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
           controller: controllerFormation,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Formation',
+            labelText: 'Formación',
           ),
         ),
         SizedBox(height: 16),
@@ -162,7 +162,7 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
           controller: controllerSessionType,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Session type',
+            labelText: 'Tipo de Cita',
           ),
         ),
         SizedBox(height: 16),
@@ -170,7 +170,7 @@ class _EditedNutritionistProfileState extends State<EditedNutritionistProfile> {
           controller: controllerAbout,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'About',
+            labelText: 'Acerca',
           ),
         ),
         SizedBox(height: 16),

@@ -98,7 +98,7 @@ class _My_publicationsState extends State<My_publications> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("My Publications"),
+        title: new Text("Mis Publicaciones"),
         actions: <Widget>[
           TextButton(
             child: Icon(Icons.add, color: Colors.white),

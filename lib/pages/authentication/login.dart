@@ -132,7 +132,7 @@ class _LoginState extends State<Login> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(bottom: 20.0),
-                      child: Text('Ingresa tu email y contraseña',
+                      child: Text('Ingresa tu correo y contraseña',
                           style: TextStyle(fontSize: 14, height: 0.5)),
                     ),
                     Container(
@@ -146,8 +146,8 @@ class _LoginState extends State<Login> {
                               horizontal: 13, vertical: 10),
                           isDense: true,
                           border: OutlineInputBorder(),
-                          labelText: 'Email',
-                          hintText: 'Enter your email',
+                          labelText: 'Correo Electrónico',
+                          hintText: 'Ingresa tu correo electrónico',
                         ),
                       ),
                     ),
@@ -163,8 +163,8 @@ class _LoginState extends State<Login> {
                               horizontal: 13, vertical: 10),
                           isDense: true,
                           border: OutlineInputBorder(),
-                          labelText: 'Password',
-                          hintText: 'Enter your password',
+                          labelText: 'Contraseña',
+                          hintText: 'Ingresa tu contraseña',
                           suffixIcon: IconButton(
                               icon: Icon(
                                 _passwordVisible

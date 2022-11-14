@@ -18,7 +18,7 @@ class HttpHelper {
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
-      final jsonResponse = json.decode(response.body);
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       List patients = jsonResponse.map((map) => Patient.fromJson(map)).toList();
       return patients;
     }
@@ -32,7 +32,7 @@ class HttpHelper {
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
-      final jsonResponse = json.decode(response.body);
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       Patient patient = Patient.fromJson(jsonResponse);
       return patient;
     } else {
@@ -46,7 +46,7 @@ class HttpHelper {
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
-      final jsonResponse = json.decode(response.body);
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       Nutritionist nutritionist = Nutritionist.fromJson(jsonResponse);
       return nutritionist;
     } else {
@@ -61,7 +61,8 @@ class HttpHelper {
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
-      final jsonResponse = json.decode(response.body);
+      //ñ and accent decode
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       List nutritionists =
           jsonResponse.map((map) => Nutritionist.fromJson(map)).toList();
       return nutritionists;
@@ -77,7 +78,7 @@ class HttpHelper {
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
-      final jsonResponse = json.decode(response.body);
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       List publications =
           jsonResponse.map((map) => Publication.fromJson(map)).toList();
       return publications;
@@ -93,7 +94,7 @@ class HttpHelper {
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
-      final jsonResponse = json.decode(response.body);
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       Patient patient = Patient.fromJson(jsonResponse);
       return patient;
     } else {
@@ -108,7 +109,7 @@ class HttpHelper {
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
-      final jsonResponse = json.decode(response.body);
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       Nutritionist nutritionist = Nutritionist.fromJson(jsonResponse);
       return nutritionist;
     } else {
@@ -131,7 +132,7 @@ class HttpHelper {
     Uri url = Uri.parse(urlString);
     http.Response response = await http.get(url);
     if (response.statusCode == HttpStatus.ok) {
-      final jsonResponse = json.decode(response.body);
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       List patients = jsonResponse.map((map) => Patient.fromJson(map)).toList();
       return patients;
     }
@@ -157,7 +158,7 @@ class HttpHelper {
 
     http.Response response = await http.get(url);
     if (response.statusCode == HttpStatus.ok) {
-      final jsonResponse = json.decode(response.body);
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       List appointments =
           jsonResponse.map((map) => Appointment.fromJson(map)).toList();
       return appointments;
@@ -202,7 +203,7 @@ class HttpHelper {
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
-      final jsonResponse = json.decode(response.body);
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       List appointments =
           jsonResponse.map((map) => Appointment.fromJson(map)).toList();
       return appointments;
@@ -220,7 +221,7 @@ class HttpHelper {
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
-      final jsonResponse = json.decode(response.body);
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       List appointments =
           jsonResponse.map((map) => Appointment.fromJson(map)).toList();
       return appointments;
@@ -236,7 +237,6 @@ class HttpHelper {
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
-      //final jsonResponse = json.decode(response.body);
       //ñ and accents are not supported
       final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       List publications =
@@ -282,7 +282,7 @@ class HttpHelper {
 
     if (response.statusCode == HttpStatus.ok) {
       //final jsonResponse = json.decode(response.body);
-      final jsonResponse = json.decode(response.body);
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       Publication publication = Publication.fromJson(jsonResponse);
       return publication;
     }

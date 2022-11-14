@@ -28,7 +28,7 @@ class _EditedPublicationState extends State<EditedPublication> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Edit Publication'),
+        title: new Text('Editar Pulbicación'),
       ),
       body: getBody(),
     );
@@ -55,7 +55,7 @@ class _EditedPublicationState extends State<EditedPublication> {
           controller: controllerTitle,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Title',
+            labelText: 'Título',
           ),
         ),
         SizedBox(height: 16),
@@ -63,7 +63,7 @@ class _EditedPublicationState extends State<EditedPublication> {
           controller: controllerDescription,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Description',
+            labelText: 'Descripción',
           ),
         ),
         SizedBox(height: 16),
@@ -71,7 +71,7 @@ class _EditedPublicationState extends State<EditedPublication> {
           controller: controllerTags,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Tag',
+            labelText: 'Etiqueta',
           ),
         ),
         SizedBox(height: 16),
@@ -79,20 +79,12 @@ class _EditedPublicationState extends State<EditedPublication> {
           controller: controllerContent,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            labelText: 'Content',
-          ),
-        ),
-        SizedBox(height: 16),
-        TextField(
-          controller: controllerPhotoUrl,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Photo Url',
+            labelText: 'Contenido',
           ),
         ),
         SizedBox(height: 16),
         ElevatedButton(
-          child: Text('Save'),
+          child: Text('Guardar'),
           onPressed: () async {
             // ignore: unused_local_variable
             String title = controllerTitle.text;
@@ -100,7 +92,7 @@ class _EditedPublicationState extends State<EditedPublication> {
             String description = controllerDescription.text;
             String tags = controllerTags.text;
             String content = controllerContent.text;
-            String photoUrl = controllerPhotoUrl.text;
+            String photoUrl = "a";
             Publication publicationInfo = Publication(
                 id: widget.publication.id,
                 title: title,

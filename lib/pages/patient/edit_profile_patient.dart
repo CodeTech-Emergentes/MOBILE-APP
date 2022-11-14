@@ -31,7 +31,7 @@ class _EditPatientProfileState extends State<EditPatientProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Profile'),
+        title: Text('Editar Perfil'),
       ),
       body: getBody(),
     );
@@ -80,7 +80,7 @@ class _EditPatientProfileState extends State<EditPatientProfile> {
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
             border: OutlineInputBorder(),
-            labelText: 'Firstname',
+            labelText: 'Nombres',
           ),
         ),
         SizedBox(height: 16),
@@ -89,7 +89,7 @@ class _EditPatientProfileState extends State<EditPatientProfile> {
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
             border: OutlineInputBorder(),
-            labelText: 'Lastname',
+            labelText: 'Apellidos',
           ),
         ),
         SizedBox(height: 16),
@@ -98,7 +98,7 @@ class _EditPatientProfileState extends State<EditPatientProfile> {
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
             border: OutlineInputBorder(),
-            labelText: 'Email',
+            labelText: 'Correo',
           ),
         ),
         SizedBox(height: 16),
@@ -108,7 +108,7 @@ class _EditPatientProfileState extends State<EditPatientProfile> {
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
             border: OutlineInputBorder(),
-            labelText: 'Phone',
+            labelText: 'Teléfono',
           ),
         ),
         SizedBox(height: 16),
@@ -117,8 +117,8 @@ class _EditPatientProfileState extends State<EditPatientProfile> {
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
             border: OutlineInputBorder(),
-            labelText: 'Birthday',
-            hintText: 'Enter your birthday',
+            labelText: 'Fecha de Nacimiento',
+            hintText: 'Ingresa tu fecha de nacimiento',
             suffixIcon: IconButton(
                 splashRadius: 20,
                 icon: Icon(
@@ -136,12 +136,12 @@ class _EditPatientProfileState extends State<EditPatientProfile> {
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
             border: OutlineInputBorder(),
-            labelText: 'ImageURL',
+            labelText: 'URL de la imagen',
           ),
         ),
         SizedBox(height: 16),
         ElevatedButton(
-          child: Text('Save'),
+          child: Text('Guardar'),
           onPressed: () async {
             String firstName = controllerFirtsName.text;
             String lastName = controllerLastName.text;

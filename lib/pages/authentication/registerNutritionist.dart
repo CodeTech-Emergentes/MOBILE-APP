@@ -149,7 +149,7 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                               border: OutlineInputBorder(),
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 13, vertical: 13),
-                              labelText: 'Full name',
+                              labelText: 'Nombre Completo',
                             ),
                           ),
                         ),
@@ -162,7 +162,7 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 13, vertical: 10),
                               border: OutlineInputBorder(),
-                              labelText: 'Email',
+                              labelText: 'Correo Electrónico',
                             ),
                           ),
                         ),
@@ -177,8 +177,8 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                                   horizontal: 13, vertical: 10),
                               isDense: true,
                               border: OutlineInputBorder(),
-                              labelText: 'Password',
-                              hintText: 'Enter your password',
+                              labelText: 'Contraseña',
+                              hintText: 'ingrese su contraseña',
                               suffixIcon: IconButton(
                                   icon: Icon(
                                     _passwordVisible
@@ -217,8 +217,8 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 13, vertical: 10),
                               border: OutlineInputBorder(),
-                              labelText: 'Birthday',
-                              hintText: 'Enter your birthday',
+                              labelText: 'Fecha de Nacimiento',
+                              hintText: 'Ingrese su fecha de nacimiento',
                               suffixIcon: IconButton(
                                   splashRadius: 20,
                                   icon: Icon(
@@ -241,7 +241,7 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                               border: OutlineInputBorder(),
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 13, vertical: 10),
-                              labelText: 'Phone',
+                              labelText: 'Teléfono',
                             ),
                           ),
                         ),
@@ -256,11 +256,11 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(4),
                               ),
-                              labelText: 'Gender',
+                              labelText: 'Género',
                             ),
                             isExpanded: true,
                             hint: const Text(
-                              'Gender',
+                              'Género',
                             ),
                             icon: const Icon(
                               Icons.arrow_drop_down,
@@ -302,7 +302,7 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                               border: OutlineInputBorder(),
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 13, vertical: 10),
-                              labelText: 'Specialization',
+                              labelText: 'Especialidad',
                             ),
                           ),
                         ),
@@ -315,7 +315,7 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                               border: OutlineInputBorder(),
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 13, vertical: 10),
-                              labelText: 'Formation',
+                              labelText: 'Formación',
                             ),
                           ),
                         ),
@@ -342,7 +342,7 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                               border: OutlineInputBorder(),
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 13, vertical: 10),
-                              labelText: 'About',
+                              labelText: 'Acerca de mi',
                             ),
                           ),
                         ),
@@ -357,11 +357,11 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(4),
                               ),
-                              labelText: 'Approach',
+                              labelText: 'Tipo de cita',
                             ),
                             isExpanded: true,
                             hint: const Text(
-                              'Approach',
+                              'Tipo de cita',
                             ),
                             icon: const Icon(
                               Icons.arrow_drop_down,

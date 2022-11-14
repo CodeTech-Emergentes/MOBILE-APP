@@ -67,7 +67,7 @@ class _ProfileNutritionistState extends State<ProfileNutritionist> {
     if (nutritionist.name == "") {
       return Scaffold(
         appBar: AppBar(
-          title: Text("Profile"),
+          title: Text("Perfil"),
         ),
         body: Center(
           child: CircularProgressIndicator(),
@@ -76,7 +76,7 @@ class _ProfileNutritionistState extends State<ProfileNutritionist> {
     } else {
       return Scaffold(
           appBar: AppBar(
-            title: Text("Profile"),
+            title: Text("Perfil"),
           ),
           body: Container(
               margin: EdgeInsets.only(top: 30.0, bottom: 30.0),
@@ -138,37 +138,135 @@ class _ProfileNutritionistState extends State<ProfileNutritionist> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("Email: " + nutritionist.email,
-                                      style: TextStyle(fontSize: 20.0)),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Correo: ",
+                                        style: TextStyle(
+                                            fontSize: 16.5,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Flexible(
+                                        child: Text(nutritionist.email,
+                                            overflow: TextOverflow.clip,
+                                            style: TextStyle(fontSize: 16.5)),
+                                      ),
+                                    ],
+                                  ),
                                   SizedBox(height: 10),
-                                  Text("Phone: " + nutritionist.phone,
-                                      style: TextStyle(fontSize: 20.0)),
+                                  Row(
+                                    children: [
+                                      Text("Teléfono: ",
+                                          style: TextStyle(
+                                              fontSize: 16.5,
+                                              fontWeight: FontWeight.bold)),
+                                      Flexible(
+                                        child: Text(nutritionist.phone,
+                                            overflow: TextOverflow.clip,
+                                            style: TextStyle(fontSize: 16.5)),
+                                      ),
+                                    ],
+                                  ),
                                   SizedBox(height: 10),
-                                  Text(
-                                      "Birthday: " +
-                                          nutritionist.birthday
-                                              .substring(0, 10),
-                                      style: TextStyle(fontSize: 20.0)),
+                                  Row(
+                                    children: [
+                                      Text("Fecha de Nacimiento: ",
+                                          style: TextStyle(
+                                              fontSize: 16.5,
+                                              fontWeight: FontWeight.bold)),
+                                      Flexible(
+                                        child: Text(
+                                            nutritionist.birthday
+                                                .substring(0, 10),
+                                            overflow: TextOverflow.clip,
+                                            style: TextStyle(fontSize: 16.5)),
+                                      ),
+                                    ],
+                                  ),
                                   SizedBox(height: 10),
-                                  Text("Gender: " + nutritionist.gender,
-                                      style: TextStyle(fontSize: 20.0)),
+                                  Row(
+                                    children: [
+                                      Text("Género: ",
+                                          style: TextStyle(
+                                              fontSize: 16.5,
+                                              fontWeight: FontWeight.bold)),
+                                      Flexible(
+                                        child: Text(nutritionist.gender,
+                                            overflow: TextOverflow.clip,
+                                            style: TextStyle(fontSize: 16.5)),
+                                      ),
+                                    ],
+                                  ),
                                   SizedBox(height: 10),
-                                  Text(
-                                      "Specialization: " +
-                                          nutritionist.specialization,
-                                      style: TextStyle(fontSize: 20.0)),
+                                  Row(
+                                    children: [
+                                      Text("Especialidad: ",
+                                          style: TextStyle(
+                                              fontSize: 16.5,
+                                              fontWeight: FontWeight.bold)),
+                                      Flexible(
+                                        child: Text(nutritionist.specialization,
+                                            overflow: TextOverflow.clip,
+                                            style: TextStyle(fontSize: 16.5)),
+                                      ),
+                                    ],
+                                  ),
                                   SizedBox(height: 10),
-                                  Text("Formation: " + nutritionist.formation,
-                                      style: TextStyle(fontSize: 20.0)),
+                                  Row(
+                                    children: [
+                                      Text("Formación: ",
+                                          style: TextStyle(
+                                              fontSize: 16.5,
+                                              fontWeight: FontWeight.bold)),
+                                      Flexible(
+                                        child: Text(nutritionist.formation,
+                                            overflow: TextOverflow.clip,
+                                            style: TextStyle(fontSize: 16.5)),
+                                      ),
+                                    ],
+                                  ),
                                   SizedBox(height: 10),
-                                  Text("CNP: " + nutritionist.cmp,
-                                      style: TextStyle(fontSize: 20.0)),
+                                  Row(
+                                    children: [
+                                      Text("CMP: ",
+                                          style: TextStyle(
+                                              fontSize: 16.5,
+                                              fontWeight: FontWeight.bold)),
+                                      Flexible(
+                                        child: Text(nutritionist.cmp,
+                                            overflow: TextOverflow.clip,
+                                            style: TextStyle(fontSize: 16.5)),
+                                      ),
+                                    ],
+                                  ),
                                   SizedBox(height: 10),
-                                  Text("Approach: " + nutritionist.sessionType,
-                                      style: TextStyle(fontSize: 20.0)),
+                                  Row(
+                                    children: [
+                                      Text("Tipo de cita: ",
+                                          style: TextStyle(
+                                              fontSize: 16.5,
+                                              fontWeight: FontWeight.bold)),
+                                      Flexible(
+                                        child: Text(nutritionist.sessionType,
+                                            overflow: TextOverflow.clip,
+                                            style: TextStyle(fontSize: 16.5)),
+                                      ),
+                                    ],
+                                  ),
                                   SizedBox(height: 10),
-                                  Text("About: " + nutritionist.about,
-                                      style: TextStyle(fontSize: 20.0)),
+                                  Row(
+                                    children: [
+                                      Text("Acerca: ",
+                                          style: TextStyle(
+                                              fontSize: 16.5,
+                                              fontWeight: FontWeight.bold)),
+                                      Flexible(
+                                        child: Text(nutritionist.about,
+                                            overflow: TextOverflow.clip,
+                                            style: TextStyle(fontSize: 16.5)),
+                                      ),
+                                    ],
+                                  ),
                                 ],
                               ),
                             ),
@@ -182,8 +280,8 @@ class _ProfileNutritionistState extends State<ProfileNutritionist> {
                               Icons.edit_outlined,
                               size: 25,
                             ),
-                            label: Text("Edit profile",
-                                style: TextStyle(fontSize: 20.0)),
+                            label: Text("Editar Perfil",
+                                style: TextStyle(fontSize: 16.5)),
                           )
                         ],
                       )

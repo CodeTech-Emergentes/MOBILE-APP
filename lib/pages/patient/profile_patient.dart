@@ -58,7 +58,7 @@ class _Profile_patientState extends State<Profile_patient> {
     if (patient.firstName == "") {
       return Scaffold(
         appBar: AppBar(
-          title: Text("Profile"),
+          title: Text("Perfil"),
         ),
         body: Center(
           child: CircularProgressIndicator(),
@@ -67,7 +67,7 @@ class _Profile_patientState extends State<Profile_patient> {
     } else {
       return Scaffold(
         appBar: AppBar(
-          title: Text("Profile"),
+          title: Text("Perfil"),
         ),
         body: Container(
           child: Column(
@@ -118,16 +118,16 @@ class _Profile_patientState extends State<Profile_patient> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Email: " + patient.email,
+                          Text("Correo: " + patient.email,
                               style: TextStyle(fontSize: 20.0)),
                           SizedBox(height: 10),
-                          Text("Phone: " + patient.phone,
+                          Text("Teléfono: " + patient.phone,
                               style: TextStyle(fontSize: 20.0)),
                           SizedBox(height: 10),
-                          Text("Birthday: " + patient.date,
+                          Text("Fecha de Nacimiento: " + patient.date,
                               style: TextStyle(fontSize: 20.0)),
                           SizedBox(height: 10),
-                          Text("Gender: " + patient.gender,
+                          Text("Género: " + patient.gender,
                               style: TextStyle(fontSize: 20.0)),
                         ],
                       ),
@@ -142,7 +142,7 @@ class _Profile_patientState extends State<Profile_patient> {
                         Icons.edit_outlined,
                         size: 25,
                       ),
-                      label: Text("Edit profile",
+                      label: Text("Editar Perfil",
                           style: TextStyle(fontSize: 20.0)))
                 ],
               )

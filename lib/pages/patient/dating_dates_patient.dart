@@ -12,7 +12,7 @@ class _Dating_dates_patientState extends State<Dating_dates_patient> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: new AppBar(
-          title: new Text("Appointment list"),
+          title: new Text("Lista de Citas"),
         ),
         body: new AppointmentListPatient());
   }

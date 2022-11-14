@@ -111,8 +111,8 @@ class _AppointmentListState extends State<AppointmentList> {
                                       'Detalles del paciente',
                                       textAlign: TextAlign.center,
                                     ),
-                                    contentPadding: EdgeInsets.all(16.0),
-                                    insetPadding: EdgeInsets.all(10.0),
+                                    contentPadding: EdgeInsets.all(8.0),
+                                    insetPadding: EdgeInsets.all(8.0),
                                     children: [
                                       Column(
                                         mainAxisAlignment:
@@ -189,7 +189,7 @@ class _AppointmentListState extends State<AppointmentList> {
                                                         Alignment.topLeft,
                                                     child: RichText(
                                                         text: TextSpan(
-                                                      text: 'Email: ' +
+                                                      text: 'Correo: ' +
                                                           patient.email,
                                                       style: TextStyle(
                                                           fontWeight:
@@ -215,7 +215,7 @@ class _AppointmentListState extends State<AppointmentList> {
                                             ],
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.all(12),
+                                            padding: EdgeInsets.all(10),
                                             child: Align(
                                               alignment: Alignment.bottomLeft,
                                               child: RichText(
@@ -231,7 +231,7 @@ class _AppointmentListState extends State<AppointmentList> {
                                             ),
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.all(12),
+                                            padding: EdgeInsets.all(10),
                                             child: Align(
                                               alignment: Alignment.bottomLeft,
                                               child: RichText(

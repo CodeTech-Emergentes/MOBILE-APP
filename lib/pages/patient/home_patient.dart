@@ -127,14 +127,16 @@ class _Home_patientState extends State<Home_patient> {
         /*Container(
             height: MediaQuery.of(context).size.height / 3.5, child: header),*/
         header,
-        getItem(new Icon(Icons.home), "Home", "/home_patient"),
-        getItem(new Icon(Icons.person), "Profile", "/profile_patient"),
+        getItem(new Icon(Icons.list_alt), "Lista de Publicaciones",
+            "/home_patient"),
+        getItem(new Icon(Icons.person), "Perfil", "/profile_patient"),
+        getItem(new Icon(Icons.people), "Lista de Nutricionistas",
+            "/list_nutritionist"),
         getItem(
-            new Icon(Icons.people), "Nutritionists list", "/list_nutritionist"),
-        getItem(new Icon(Icons.date_range), "My appointments",
-            "/dating_dates_patient"),
-        getItem(new Icon(Icons.description), "Logbook", "/logbook_patient"),
-        getItem(new Icon(Icons.logout), "Logout", "/login"),
+            new Icon(Icons.date_range), "Mis citas", "/dating_dates_patient"),
+        getItem(new Icon(Icons.description), "Bitácora del Paciente",
+            "/logbook_patient"),
+        getItem(new Icon(Icons.logout), "Cerrar sesión", "/login"),
       ],
     );
 
@@ -147,7 +149,7 @@ class _Home_patientState extends State<Home_patient> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Home patient"),
+        title: new Text("Menú del Paciente"),
       ),
       body: PublicationList(),
       drawer: new Drawer(

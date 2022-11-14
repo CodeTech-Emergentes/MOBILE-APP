@@ -43,7 +43,7 @@ class _RegisterState extends State<Register> {
                   children: [
                     Padding(
                       padding: EdgeInsets.only(bottom: 10.0),
-                      child: Text('Sign up',
+                      child: Text('Registrarse',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
