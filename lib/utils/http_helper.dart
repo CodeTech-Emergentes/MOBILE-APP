@@ -236,7 +236,9 @@ class HttpHelper {
     http.Response response = await http.get(url);
 
     if (response.statusCode == HttpStatus.ok) {
-      final jsonResponse = json.decode(response.body);
+      //final jsonResponse = json.decode(response.body);
+      //ñ and accents are not supported
+      final jsonResponse = json.decode(utf8.decode(response.bodyBytes));
       List publications =
           jsonResponse.map((map) => Publication.fromJson(map)).toList();
       return publications;
@@ -328,7 +330,7 @@ class HttpHelper {
     Uri url = Uri.parse(urlString);
 
     var headers = {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json;charset=UTF-8',
     };
 
     final response =
