@@ -16,9 +16,9 @@ class _RegisterNutritionistState extends State<RegisterNutritionist> {
   DateTime selectedDate = DateTime.now();
 
   final List<String> genderItems = [
-    'Male',
-    'Female',
-    'Other',
+    'Masculino',
+    'Femenino',
+    'Otro',
   ];
 
   final List<String> typesItems = [

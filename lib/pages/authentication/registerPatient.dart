@@ -16,9 +16,9 @@ class _RegisterPatientState extends State<RegisterPatient> {
   DateTime selectedDate = DateTime.now();
 
   final List<String> genderItems = [
-    'Male',
-    'Female',
-    'Other',
+    'Masculino',
+    'Femenino',
+    'Otro',
   ];
 
   String selectedValue = "TestString";
