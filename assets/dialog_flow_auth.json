@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "chatbot-wjif",
+  "private_key_id": "da18d40ed91cf1bf93ac92ddfadf9af59c7180db",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+mGyXt7mN+Ojv\nuEo+OvMqsLlbrNq6ZkjGYVsvAGkXYnaMlOinBGgoa0HCkhLbbcO9I3E24KnN8ATg\nnU99I9VTAUHTDvsQWpBFTZVOx7V16+5C2wDr0E1lqozcTNq2oiWSsMxLr9ClCYCY\nd9qIGIyD8IIpbMcGf0lrOL3pqHn+RD2MCE9neU8vd+olB7aOkmGPtYQkfzRDA5z+\nsB0mPiA+D2/pQw6HOdk6Y/+DCG1zBmvclny4guuBAYehekcE1qau5E0nd2BZFymf\nQbqpDzN1JyLfgyqKlzaB2zmIHpOLInJqmDYDhQ6mCMONhoTvQ2880yz17Z/oj33m\nu03AY8anAgMBAAECggEAH4pfLhxGpf/y9virEJv2HF0dJNajZlqsNb1sDDMn26l9\nBMv/qY6eeKcx6Aj++zZcQLMvdm1nVvUerteu4n6ePBuRJmRBl/XkuhNEtMIdKA6L\nDJ/sCcTG33QsgKhsk/HxVdJ8JxTz6jEltBWMIcmDjLIDAufwElsuGIL4qpopgLIb\na8GU+bboBH9tj2f+el5sX0H1e2bzGR0ak7+LvPBtq7yanK42Yg7pNmjZChlpPxfZ\nSJ22qrtufJ3NElQF68+oIkij/p3gquCJ5u+5fylqOosBslAl4pWb19jf98JZvDrF\n5au7VMK+fr+uJ3qqdD79VdkPhvjJtegHdTDNMEKPwQKBgQD10Bi8d7OIWBl0Bapa\nF1Oljv8pG932wBCslxU3bZzEqyEaH2tGWNsGaC7Ws/uxOvibfJrL6XmNbgfA5sYL\nHKhXX/+o8VfLC6Een6FPveek6r7LgKhtSskLAsRmkm+gUFP2XPmBK5vx5UeEdBuU\nWeqkk+KSRMHUH8zuvnwQ03crEwKBgQDGfoI4V8sF9VgeRyQhbhCwGQx6sdlcOj3y\nNcPS+8IHIOH5Snv/cOenMziiacZ4ytFAWCN9PueJcUr/0WbOEhjQrbvkr3A7xqp9\nYhkjH7VXLlIFeoHK2A0nFlyyt3A4kP+oa17bGkz+QIPCPCT2JfY+jflaTEMBwmyj\nPVPkFYe0nQKBgQDHaoXWx8k3MDmd/UahBdGPOz3XbMsadeBRE9RbfiozBp25IooV\nrNorDXQKLENhGXU8Ns8h5Av/Z6cUoGND+oC7OZ8fwIM3rvyL6nakSWzWRrZ4Q6zf\n1U7aBumsSNoUFXa4I98qImXFzPrDAqqpJHUOBQdHIE6atx27BX+C6vr/TwKBgFjb\nZTwHwTEHpczYGAqHFR1f+UArwZwRzo1RGDqozTEXvVE10NCHIIyu11mNdHW6hXYC\nftCgilHyz5o5iYYSf91bCNPU3a9Evimm8o3QsgM3Dyy4rMW7dhfbYN/4UlpgPrKM\nbkgzO+hNxS38cqdmUxepwshzf0OYX72rxJRENx3ZAoGAKzQe9c5W1k2pB1TvEezi\nmOsB5lOIni2SOcKPr9dmSeXOduOnYKa/c0RchDgHCZaKEpPaQqY0gUNBJI1KrzfC\n/Gr+sCVy8lQFxOhs0l9FFRKAcM+Ctb1THqOCailocbk/IHisUoakhsaGhhJRhoQp\n0s1xhAGVDCD6JC+IbfiUMmo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "consultas-nutrix@chatbot-wjif.iam.gserviceaccount.com",
+  "client_id": "101160115695741982049",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/consultas-nutrix%40chatbot-wjif.iam.gserviceaccount.com"
+}
