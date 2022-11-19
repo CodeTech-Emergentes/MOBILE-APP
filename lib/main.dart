@@ -4,6 +4,7 @@ import 'package:psychohelp_app/pages/authentication/register.dart';
 import 'package:psychohelp_app/pages/authentication/registerPatient.dart';
 import 'package:psychohelp_app/pages/authentication/registerNutritionist.dart';
 import 'package:psychohelp_app/pages/patient/appointments.dart';
+import 'package:psychohelp_app/pages/patient/chatbot.dart';
 import 'package:psychohelp_app/pages/patient/dating_dates_patient.dart';
 import 'package:psychohelp_app/pages/patient/home_patient.dart';
 import 'package:psychohelp_app/pages/patient/logbook_patient.dart';
@@ -53,5 +54,6 @@ void main() {
         RegisterNutritionist.routeName: (BuildContext context) =>
             new RegisterNutritionist(),
         Call.routeName: (BuildContext context) => new Call(),
+        ChatBot.routeName: (BuildContext context) => new ChatBot(),
       }));
 }

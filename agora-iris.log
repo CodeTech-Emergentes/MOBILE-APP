@@ -124,3 +124,7 @@
 [2022-11-14 01:51:50.691] [7516] [debug] C:\workspace\workspace\AD\Agora-Iris\IRIS-SDK\base\internal\process\iris_process_win.cc:115 agora::iris::IrisProcess::GetCurrentModuleFileName path D:\Workspace\Flutter\MOBILE-APP\build\windows\runner\Debug\AgoraRtcWrapper.dll
 [2022-11-14 01:53:19.036] [7916] [debug] C:\workspace\workspace\AD\Agora-Iris\IRIS-SDK\base\internal\log\iris_logger.cc:35 agora::iris::InitLogger 
 [2022-11-14 01:53:19.036] [7916] [debug] C:\workspace\workspace\AD\Agora-Iris\IRIS-SDK\base\internal\process\iris_process_win.cc:115 agora::iris::IrisProcess::GetCurrentModuleFileName path D:\Workspace\Flutter\MOBILE-APP\build\windows\runner\Debug\AgoraRtcWrapper.dll
+[2022-11-18 17:46:49.440] [336] [debug] C:\workspace\workspace\AD\Agora-Iris\IRIS-SDK\base\internal\log\iris_logger.cc:35 agora::iris::InitLogger 
+[2022-11-18 17:46:49.440] [336] [debug] C:\workspace\workspace\AD\Agora-Iris\IRIS-SDK\base\internal\process\iris_process_win.cc:115 agora::iris::IrisProcess::GetCurrentModuleFileName path D:\Workspace\Flutter\MOBILE-APP\build\windows\runner\Debug\AgoraRtcWrapper.dll
+[2022-11-18 19:15:48.713] [10868] [debug] C:\workspace\workspace\AD\Agora-Iris\IRIS-SDK\base\internal\log\iris_logger.cc:35 agora::iris::InitLogger 
+[2022-11-18 19:15:48.713] [10868] [debug] C:\workspace\workspace\AD\Agora-Iris\IRIS-SDK\base\internal\process\iris_process_win.cc:115 agora::iris::IrisProcess::GetCurrentModuleFileName path D:\Workspace\Flutter\MOBILE-APP\build\windows\runner\Debug\AgoraRtcWrapper.dll

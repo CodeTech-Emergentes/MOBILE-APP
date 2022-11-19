@@ -136,7 +136,9 @@ class _Home_patientState extends State<Home_patient> {
             new Icon(Icons.date_range), "Mis citas", "/dating_dates_patient"),
         getItem(new Icon(Icons.description), "Bitácora del Paciente",
             "/logbook_patient"),
-        getItem(new Icon(Icons.logout), "Cerrar sesión", "/login"),
+        getItem(
+            new Icon(Icons.assignment_sharp), "Asistente Virtual", "/chatbot"),
+        getItem(new Icon(Icons.logout), "Cerrar sesión", "/login")
       ],
     );
 
