@@ -84,7 +84,7 @@ class _Logbook_patientState extends State<Logbook_patient> {
     } else {
       return Scaffold(
           appBar: new AppBar(
-            title: new Text("Patient logbook"),
+            title: new Text("Bitácora del paciente"),
           ),
           resizeToAvoidBottomInset: false,
           body: new Container(
